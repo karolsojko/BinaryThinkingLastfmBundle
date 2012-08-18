@@ -13,6 +13,16 @@ The Bundle handles now only API methods for "Album" context. Stay tunned for mor
 Installation
 ============
 
+If you're using composer just add:
+
+```json
+{
+    require: {
+        "binarythinking/lastfm-bundle": "*"
+    }
+}
+```
+
 If you're using a deps file just add:
 
 ```
