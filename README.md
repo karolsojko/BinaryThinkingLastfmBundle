@@ -27,7 +27,8 @@ If you're using a deps file just add:
 
 ```
 [BinaryThinkingLastfmBundle]
-git=http://github.com/karolsojko/BinaryThinkingLastfmBundle.git
+    target=/bundles/BinaryThinking/LastfmBundle
+    git=http://github.com/karolsojko/BinaryThinkingLastfmBundle.git
 ```
 
 Register the BinaryThinking namespace in autoload.php
