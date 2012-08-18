@@ -34,6 +34,7 @@ If you're using a deps file just add:
 Register the BinaryThinking namespace in autoload.php
 
 ```php
+<?php
 $loader->registerNamespaces(array(
     // ...
     'BinaryThinking'  => __DIR__ . '/../vendor/bundles',
@@ -44,6 +45,7 @@ $loader->registerNamespaces(array(
 And the bundle to AppKernel.php
 
 ```php
+<?php
 $bundles = array(
   // ...
   new BinaryThinking\LastfmBundle\BinaryThinkingLastfmBundle()
