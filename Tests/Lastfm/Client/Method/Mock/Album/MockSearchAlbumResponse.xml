@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <results for="Sound of perseverance" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+        <opensearch:Query role="request" searchTerms="Sound of perseverance" startPage="1" />
+        <opensearch:totalResults>6</opensearch:totalResults>
+        <opensearch:startIndex>0</opensearch:startIndex>
+        <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+        <albummatches>
+            <album>
+            <name>The Sound Of Perseverance</name>
+            <artist>Death</artist>
+            <id>310948</id>
+            <url>http://www.last.fm/music/Death/The+Sound+Of+Perseverance</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/52309427.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/52309427.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/52309427.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/52309427.png</image>
+            <streamable>1</streamable>
+                    <mbid>271b8086-216b-306a-b192-8ad4c80939e7</mbid>
+            </album>
+        <album>
+            <name>Sound of Perseverance</name>
+            <artist>Death</artist>
+            <id>2479911</id>
+            <url>http://www.last.fm/music/Death/Sound+of+Perseverance</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/19066881.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/19066881.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/19066881.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/19066881.jpg</image>
+            <streamable>1</streamable>
+                    <mbid></mbid>
+            </album>
+        <album>
+            <name>The Sound of Perseverance - Reissue</name>
+            <artist>Death</artist>
+            <id>263012742</id>
+            <url>http://www.last.fm/music/Death/The+Sound+of+Perseverance+-+Reissue</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/58708013.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/58708013.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/58708013.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/58708013.jpg</image>
+            <streamable>1</streamable>
+                    <mbid></mbid>
+            </album>
+        <album>
+            <name>Sound of Perseverance+Dvd</name>
+            <artist>Death</artist>
+            <id>2814476</id>
+            <url>http://www.last.fm/music/Death/Sound+of+Perseverance%252BDvd</url>
+            <image size="small"></image>
+            <image size="medium"></image>
+            <image size="large"></image>
+            <image size="extralarge"></image>
+            <streamable>0</streamable>
+                    <mbid></mbid>
+            </album>
+        <album>
+            <name>The Sound Of Perseverance (Reissue)</name>
+            <artist>Death</artist>
+            <id>260706145</id>
+            <url>http://www.last.fm/music/Death/The+Sound+Of+Perseverance+(Reissue)</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/58395257.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/58395257.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/58395257.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/58395257.jpg</image>
+            <streamable>1</streamable>
+                    <mbid></mbid>
+            </album>
+        <album>
+            <name>The Sound Of Perseverance - Reissue (Bonus Disc)</name>
+            <artist>Death</artist>
+            <id>263193169</id>
+            <url>http://www.last.fm/music/Death/The+Sound+Of+Perseverance+-+Reissue+(Bonus+Disc)</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/58708327.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/58708327.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/58708327.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/58708327.jpg</image>
+            <streamable>1</streamable>
+                    <mbid></mbid>
+            </album>
+        </albummatches>
+    </results>
+</lfm>

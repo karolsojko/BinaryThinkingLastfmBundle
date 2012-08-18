@@ -1,0 +1,27 @@
+{
+    "name": "binarythinking/lastfm-bundle",
+    "type": "symfony-bundle",
+    "description": "Use Last.fm API in your Symfony 2 application.",
+    "keywords": ["lastfm", "last.fm", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Karol Sójko",
+            "email": "karolsojko@gmail.com",
+            "homepage": "http://blog.karolsojko.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*,<2.2"
+    },
+    
+    "autoload": {
+        "psr-0": {
+            "BinaryThinking\\LastfmBundle": ""
+        }
+    },
+    
+    "target-dir": "BinaryThinking/LastfmBundle"
+}
