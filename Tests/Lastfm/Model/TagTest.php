@@ -25,6 +25,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     {
         libxml_use_internal_errors(true);
         $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/MockTagResponse.xml');
+        
         return $mockResponse;
     }    
 }
