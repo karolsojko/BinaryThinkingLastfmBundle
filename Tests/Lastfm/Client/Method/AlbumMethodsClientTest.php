@@ -13,26 +13,23 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     
     protected $apiSecret;
     
+    protected $albumClient;
+    
     public function setUp()
     {
         parent::setUp();
         $this->apiKey = 'test';
         $this->apiSecret = 'testSecret';
+        
+        $this->albumClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', 
+                array('call'), array($this->apiKey, $this->apiSecret));
     }
     
     public function testSearch()
     {
-        $albumClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', 
-                array('call'), array($this->apiKey, $this->apiSecret));
+        $this->stubCallMethod('MockSearchAlbumResponse');
         
-        libxml_use_internal_errors(true);
-        $mockSearchResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/MockSearchAlbumResponse.xml');
-        
-        $albumClient->expects($this->any())
-                ->method('call')
-                ->will($this->returnValue($mockSearchResponse));
-        
-        $albums = $albumClient->search('Sound of perseverance');
+        $albums = $this->albumClient->search('Sound of perseverance');
         $this->assertNotEmpty($albums, 'no albums retrieved');
         
         $firstAlbum = reset($albums);
@@ -42,17 +39,9 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     
     public function testGetTopTags()
     {
-        $albumClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', 
-                array('call'), array($this->apiKey, $this->apiSecret));
+        $this->stubCallMethod('MockGetTopTagsAlbumResponse');
         
-        libxml_use_internal_errors(true);
-        $mockTagResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/MockGetTopTagsAlbumResponse.xml');
-        
-        $albumClient->expects($this->any())
-                ->method('call')
-                ->will($this->returnValue($mockTagResponse));
-        
-        $topTags = $albumClient->getTopTags('Cynic', 'Focus');
+        $topTags = $this->albumClient->getTopTags('Cynic', 'Focus');
         $this->assertNotEmpty($topTags, 'no album tags retrieved');
         
         $firstTag = reset($topTags);
@@ -62,17 +51,9 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     
     public function testGetTags()
     {
-        $albumClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', 
-                array('call'), array($this->apiKey, $this->apiSecret));
+        $this->stubCallMethod('MockGetTagsAlbumResponse');
         
-        libxml_use_internal_errors(true);
-        $mockTagResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/MockGetTagsAlbumResponse.xml');
-        
-        $albumClient->expects($this->any())
-                ->method('call')
-                ->will($this->returnValue($mockTagResponse));
-        
-        $userTags = $albumClient->getTags('In Flames', 'Sounds of a playground fading', 'someUserName');
+        $userTags = $this->albumClient->getTags('In Flames', 'Sounds of a playground fading', 'someUserName');
         $this->assertNotEmpty($userTags, 'no album tags retrieved');
         
         $firstTag = reset($userTags);
@@ -82,22 +63,23 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     
     public function testGetInfo()
     {
-        $albumClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', 
-                array('call'), array($this->apiKey, $this->apiSecret));
-        
-        libxml_use_internal_errors(true);
-        $mockGetInfoResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/MockGetInfoAlbumResponse.xml');
-        
-        $albumClient->expects($this->any())
-                ->method('call')
-                ->will($this->returnValue($mockGetInfoResponse));
-        
-        $album = $albumClient->getInfo('Death', 'Sound of perseverance');
+        $this->stubCallMethod('MockGetInfoAlbumResponse');
+
+        $album = $this->albumClient->getInfo('Death', 'Sound of perseverance');
         $this->assertNotEmpty($album, 'no album retrieved');
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album', $album, 'album is not a valid instance of Album class');
         $this->assertEquals('Death', $album->getArtist(), 'artist does not match');
         $this->assertCount(9, $album->getTracks(), 'wrong number of tracks retrieved');
+    }
+    
+    protected function stubCallMethod($mockResponseName){
+        libxml_use_internal_errors(true);
+        $mockGetInfoResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/' . $mockResponseName . '.xml');
+        
+        $this->albumClient->expects($this->any())
+                ->method('call')
+                ->will($this->returnValue($mockGetInfoResponse));        
     }
     
 }
