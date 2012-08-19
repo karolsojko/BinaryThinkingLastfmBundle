@@ -10,12 +10,7 @@
 
     <filter>
         <whitelist>
-            <directory>../src</directory>
-            <exclude>
-                <directory>./Resources</directory>
-                <directory>./Tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
+            <directory>./Tests</directory>
         </whitelist>
     </filter>
     

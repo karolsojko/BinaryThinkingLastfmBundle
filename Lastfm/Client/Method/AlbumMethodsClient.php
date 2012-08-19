@@ -6,7 +6,7 @@ use BinaryThinking\LastfmBundle\Lastfm\Client\LastfmAPIClient;
 use BinaryThinking\LastfmBundle\Lastfm\Model as LastfmModel;
 
 /**
- * AlbumMethodClient
+ * AlbumMethodsClient
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
