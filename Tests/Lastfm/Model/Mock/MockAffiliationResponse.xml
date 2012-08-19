@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affiliation>
+    <supplierName>Amazon</supplierName>
+    <price>
+        <currency>GBP</currency>
+        <amount>7.49</amount>
+    </price>
+    <buyLink>http://www.last.fm/affiliate/byid/8/3418994/1/ws.album.buylinks.b25b959554ed76058ac220b7b2e0a026</buyLink>
+    <supplierIcon>http://cdn.last.fm/favicons/amazon.gif</supplierIcon>
+    <isSearch>1</isSearch>
+</affiliation>

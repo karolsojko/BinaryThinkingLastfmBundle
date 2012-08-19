@@ -85,6 +85,25 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Just cannot get enough', $firstShout->getBody(), 'shout does not match');
     }    
     
+    public function testGetBuylinks()
+    {
+        $this->stubCallMethod('MockGetBuylinksAlbumResponse');
+        
+        $affiliations = $this->albumClient->getBuylinks('TestArtist', 'test album');
+        $this->assertNotEmpty($affiliations, 'no affiliations retrieved');
+        
+        $this->assertNotEmpty($affiliations['physicals'], 'no physical affiliations retrieved');
+        $this->assertNotEmpty($affiliations['downloads'], 'no downloadable affiliations retrieved');
+        
+        $firstPhysical = reset($affiliations['physicals']);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Affiliation', $firstPhysical, 'wrong instance of affiliation');
+        $this->assertEquals('Amazon', $firstPhysical->getSupplierName(), 'wrong supplier name');
+        
+        $firstDownloadable = reset($affiliations['downloads']);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Affiliation', $firstDownloadable, 'wrong instance of affiliation');
+        $this->assertEquals('Amazon MP3', $firstDownloadable->getSupplierName(), 'wrong supplier name');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);

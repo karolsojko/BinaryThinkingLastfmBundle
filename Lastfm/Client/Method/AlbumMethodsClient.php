@@ -136,18 +136,18 @@ class AlbumMethodsClient extends LastfmAPIClient
      * Get shouts for this album.
      * 
      * @param string $artist the artist name
-     * @param string $shout the album name
+     * @param string $album the album name
      * @param int $limit the number of results to fetch per page. Defaults to 30.
      * @param int $page the page number to fetch. Defaults to first page.
      * @param mixed $mbid the musicbrainz id for the album
      * @param bool $autocorrect transform misspelled artist names into correct artist names
      */
-    public function getShouts($artist, $shout, $limit = null, $page = null, $mbid = null, $autocorrect = true)
+    public function getShouts($artist, $album, $limit = null, $page = null, $mbid = null, $autocorrect = true)
     {
         $response = $this->call(array(
             'method' => 'album.getShouts',
             'artist' => $artist,
-            'album' => $shout,
+            'album' => $album,
             'mbid' => $mbid,
             'limit' => $limit,
             'page' => $page,
@@ -163,6 +163,41 @@ class AlbumMethodsClient extends LastfmAPIClient
         }
         
         return $shouts;        
+    }
+    
+    /**
+     * Get a list of Buy Links for a particular Album. It is required that you supply either the artist and album params or the mbid param.
+     * 
+     * @param string $artist the artist name
+     * @param string $album the album name
+     * @param mixed $mbid the musicbrainz id for the album
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     * @param string $country a country name, as defined by the ISO 3166-1 country names standard.
+     */
+    public function getBuylinks($artist, $album, $mbid = null, $autocorrect = true, $country = null)
+    {
+        $response = $this->call(array(
+            'method' => 'album.getBuylinks',
+            'artist' => $artist,
+            'album' => $album,
+            'autocorrect' => $autocorrect,
+            'mbid' => $mbid,
+            'country' => $country
+        ));
+        
+        $affiliations = array();
+        if(!empty($response->affiliations->physicals->affiliation)){
+            foreach($response->affiliations->physicals->affiliation as $physicalAffiliation){
+                $affiliations['physicals'][] = LastfmModel\Affiliation::createFromResponse($physicalAffiliation);
+            }
+        }
+        if(!empty($response->affiliations->downloads->affiliation)){
+            foreach($response->affiliations->downloads->affiliation as $downloadAffiliation){
+                $affiliations['downloads'][] = LastfmModel\Affiliation::createFromResponse($downloadAffiliation);
+            }
+        }
+        
+        return $affiliations;
     }
     
 }
