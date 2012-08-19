@@ -73,10 +73,23 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(9, $album->getTracks(), 'wrong number of tracks retrieved');
     }
     
-    protected function stubCallMethod($mockResponseName){
+    public function testGetShouts()
+    {
+        $this->stubCallMethod('MockGetShoutsAlbumResponse');
+
+        $shouts = $this->albumClient->getShouts('Death', 'Sound of perseverance');
+        $this->assertNotEmpty($shouts, 'no shouts retrieved');
+        
+        $firstShout = reset($shouts);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Shout', $firstShout, 'shout is not a valid instance of Shout class');
+        $this->assertEquals('Just cannot get enough', $firstShout->getBody(), 'shout does not match');
+    }    
+    
+    protected function stubCallMethod($mockResponseName)
+    {
         libxml_use_internal_errors(true);
         $mockGetInfoResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/' . $mockResponseName . '.xml');
-        
+
         $this->albumClient->expects($this->any())
                 ->method('call')
                 ->will($this->returnValue($mockGetInfoResponse));        

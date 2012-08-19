@@ -132,4 +132,37 @@ class AlbumMethodsClient extends LastfmAPIClient
         return $albums;
     }
     
+    /**
+     * Get shouts for this album.
+     * 
+     * @param string $artist the artist name
+     * @param string $shout the album name
+     * @param int $limit the number of results to fetch per page. Defaults to 30.
+     * @param int $page the page number to fetch. Defaults to first page.
+     * @param mixed $mbid the musicbrainz id for the album
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getShouts($artist, $shout, $limit = null, $page = null, $mbid = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'album.getShouts',
+            'artist' => $artist,
+            'album' => $shout,
+            'mbid' => $mbid,
+            'limit' => $limit,
+            'page' => $page,
+            'autocorrect' => $autocorrect
+        ));
+        
+        $shouts = array();
+        if(!empty($response->shouts->shout)){
+            foreach($response->shouts->shout as $albumShouts){
+                $shout = LastfmModel\Shout::createFromResponse($albumShouts);
+                $shouts[] = $shout;
+            }            
+        }
+        
+        return $shouts;        
+    }
+    
 }

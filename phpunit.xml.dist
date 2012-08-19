@@ -18,5 +18,11 @@
             </exclude>
         </whitelist>
     </filter>
+    
+    <logging>
+      <log type="coverage-html" target="coverage-report" charset="UTF-8"
+           yui="true" highlight="false"
+           lowUpperBound="50" highLowerBound="95"/>
+    </logging>    
 
 </phpunit>
