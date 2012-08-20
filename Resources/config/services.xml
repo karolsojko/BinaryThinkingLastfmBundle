@@ -17,6 +17,10 @@
             <argument>%binary_thinking_lastfm.client_apikey%</argument>
             <argument>%binary_thinking_lastfm.client_secret%</argument>
         </service>
+        <service id="binary_thinking_lastfm.client.artist" class="BinaryThinking\LastfmBundle\Lastfm\Client\Method\ArtistMethodsClient" factory-class="%binary_thinking_lastfm.client_factory.class%" factory-method="getArtistClient">
+            <argument>%binary_thinking_lastfm.client_apikey%</argument>
+            <argument>%binary_thinking_lastfm.client_secret%</argument>
+        </service>        
     </services>
     
 </container>

@@ -36,9 +36,15 @@ class LastfmAPIClientFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', $albumClient, 'wrong client delivered');
     }
     
-    public function testGetAlbumClient()
+    public function testGetClientForArtist()
     {
-        $albumClient = LastfmAPIClientFactory::getAlbumClient($this->apiKey, $this->apiSecret);
-        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', $albumClient, 'wrong client delivered');
+        $artistClient = LastfmAPIClientFactory::getClient('artist', $this->apiKey, $this->apiSecret);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Client\Method\ArtistMethodsClient', $artistClient, 'wrong client delivered');
+    }    
+    
+    public function testGetArtistClient()
+    {
+        $artistClient = LastfmAPIClientFactory::getArtistClient($this->apiKey, $this->apiSecret);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Client\Method\ArtistMethodsClient', $artistClient, 'wrong client delivered');
     }
 }

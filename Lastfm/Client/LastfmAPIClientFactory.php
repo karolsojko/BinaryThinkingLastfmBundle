@@ -2,7 +2,7 @@
 
 namespace BinaryThinking\LastfmBundle\Lastfm\Client;
 
-use BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient;
+use BinaryThinking\LastfmBundle\Lastfm\Client\Method;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 
 /**
@@ -19,6 +19,9 @@ class LastfmAPIClientFactory
             case 'album':
                 return self::getAlbumClient($apiKey, $apiSecret);
                 break;
+            case 'artist':
+                return self::getArtistClient($apiKey, $apiSecret);
+                break;            
             default:
                 throw new InvalidArgumentException('invalid client name: ' . $clientName);
         }
@@ -26,7 +29,12 @@ class LastfmAPIClientFactory
     
     public static function getAlbumClient($apiKey, $apiSecret)
     {
-        return new AlbumMethodsClient($apiKey, $apiSecret);
+        return new Method\AlbumMethodsClient($apiKey, $apiSecret);
     }
+    
+    public static function getArtistClient($apiKey, $apiSecret)
+    {
+        return new Method\ArtistMethodsClient($apiKey, $apiSecret);
+    }    
     
 }
