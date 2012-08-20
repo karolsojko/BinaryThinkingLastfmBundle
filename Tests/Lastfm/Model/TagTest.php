@@ -9,11 +9,11 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Tag;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class TagTest extends \PHPUnit_Framework_TestCase
+class TagTest extends ModelTestCase
 {
     public function testCreateFromResponse()
     {
-        $mockResponse = $this->createMockTagResponse();
+        $mockResponse = $this->createMockResponse('MockTagResponse');
         $tag = Tag::createFromResponse($mockResponse);
         
         $this->assertNotEmpty($tag->getName(), 'tag has empty name');
@@ -21,11 +21,4 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($tag->getUrl(), 'tag has empty url');
     }
     
-    protected function createMockTagResponse()
-    {
-        libxml_use_internal_errors(true);
-        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/MockTagResponse.xml');
-        
-        return $mockResponse;
-    }    
 }

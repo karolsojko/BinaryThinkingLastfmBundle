@@ -36,7 +36,7 @@ class Track implements LastfmModelInterface
         $track->setDuration((int) $response->duration);
         $track->setMbid((string) $response->mbid);
         $track->setUrl((string) $response->url);
-        $track->setStreamable((bool) $response->streamable);
+        $track->setStreamable((int) $response->streamable);
         
         if(!empty($response->artist)){
             $track->setArtist(Artist::createFromResponse($response->artist));

@@ -52,7 +52,7 @@ class Album implements LastfmModelInterface
         $album->setReleaseDate((string) $response->releasedate);
         $album->setListeners((int) $response->listeners);
         $album->setPlayCount((int) $response->playcount);
-        $album->setStreamable((bool) $response->streamable);
+        $album->setStreamable((int) $response->streamable);
         $topTags = array();
         foreach($response->toptags as $topTag){
             $topTags[] = $topTag;

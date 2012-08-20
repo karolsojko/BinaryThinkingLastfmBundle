@@ -9,11 +9,11 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Track;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class TrackTest extends \PHPUnit_Framework_TestCase
+class TrackTest extends ModelTestCase
 {
     public function testCreateFromResponse()
     {
-        $mockResponse = $this->createMockTrackResponse();
+        $mockResponse = $this->createMockResponse('MockTrackResponse');
         $track = Track::createFromResponse($mockResponse);
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track', 
@@ -29,11 +29,4 @@ class TrackTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($track->getStreamable(), 'track streamable is empty');
     }
     
-    protected function createMockTrackResponse()
-    {
-        libxml_use_internal_errors(true);
-        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/MockTrackResponse.xml');
-        
-        return $mockResponse;
-    }        
 }

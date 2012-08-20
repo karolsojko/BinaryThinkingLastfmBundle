@@ -8,7 +8,11 @@ This is a Bundle that will help you communicate with Last.fm's API.
 Status
 ======
 
-The Bundle handles now only API methods for "Album" context. Stay tunned for more comming soon.
+The Bundle handles now only API methods for following contexts:
+- Album
+- Artist
+
+Stay tunned for more comming soon.
 
 Installation
 ============

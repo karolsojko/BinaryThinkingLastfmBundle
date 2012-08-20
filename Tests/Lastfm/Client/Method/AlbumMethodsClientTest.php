@@ -107,11 +107,11 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);
-        $mockGetInfoResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/' . $mockResponseName . '.xml');
+        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/' . $mockResponseName . '.xml');
 
         $this->albumClient->expects($this->any())
                 ->method('call')
-                ->will($this->returnValue($mockGetInfoResponse));        
+                ->will($this->returnValue($mockResponse));        
     }
     
 }

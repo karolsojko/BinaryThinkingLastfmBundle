@@ -9,11 +9,11 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Affiliation;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class AffiliationTest extends \PHPUnit_Framework_TestCase 
+class AffiliationTest extends ModelTestCase
 {
     public function testCreateFromResponse()
     {
-        $mockResponse = $this->createMockAffiliationResponse();
+        $mockResponse = $this->createMockResponse('MockAffiliationResponse');
         $affiliation = Affiliation::createFromResponse($mockResponse);
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Affiliation', 
@@ -24,12 +24,5 @@ class AffiliationTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($affiliation->getIsSearch(), 'empty affiliation is search');
         $this->assertNotEmpty($affiliation->getBuyLink(), 'empty affiliation buy link');
     }
-    
-    protected function createMockAffiliationResponse()
-    {
-        libxml_use_internal_errors(true);
-        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/MockAffiliationResponse.xml');
-        
-        return $mockResponse;
-    }    
+
 }

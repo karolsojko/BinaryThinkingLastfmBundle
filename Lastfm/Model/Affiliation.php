@@ -29,7 +29,7 @@ class Affiliation implements LastfmModelInterface
         $affiliation->setPrice($price);
         $affiliation->setBuyLink((string) $response->buyLink);
         $affiliation->setSupplierIcon((string) $response->supplierIcon);
-        $affiliation->setIsSearch((bool) $response->isSearch);
+        $affiliation->setIsSearch((int) $response->isSearch);
         
         return $affiliation;
     }

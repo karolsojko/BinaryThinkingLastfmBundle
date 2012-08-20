@@ -9,12 +9,12 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Album;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class AlbumTest extends \PHPUnit_Framework_TestCase
+class AlbumTest extends ModelTestCase
 {
     
     public function testCreateFromResponse()
     {
-        $mockResponse = $this->createMockAlbumResponse();
+        $mockResponse = $this->createMockResponse('MockAlbumResponse');
         $album = Album::createFromResponse($mockResponse);
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album', 
@@ -31,14 +31,6 @@ class AlbumTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($album->getStreamable(), 'empty album streamable');
         $this->assertNotEmpty($album->getTopTags(), 'empty album top tags');
         $this->assertNotEmpty($album->getTracks(), 'empty album tracks');
-    }
-    
-    protected function createMockAlbumResponse()
-    {
-        libxml_use_internal_errors(true);
-        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/MockAlbumResponse.xml');
-        
-        return $mockResponse;
     }
     
 }

@@ -18,7 +18,7 @@ class AlbumMethodsClient extends LastfmAPIClient
      * 
      * @param string $artist the artist name
      * @param string $album the album name
-     * @param mixed $mbid the musicbrainz id for the album
+     * @param string $mbid the musicbrainz id for the album
      * @param bool $autocorrect transform misspelled artist names into correct artist names
      * @param string $username The username for the context of the request
      * @param string $lang The language to return the biography in, expressed as an ISO 639 alpha-2 code.
@@ -51,7 +51,7 @@ class AlbumMethodsClient extends LastfmAPIClient
      * @param string $artist the artist name
      * @param string $album the album name
      * @param string $user If called in non-authenticated mode you must specify the user to look up
-     * @param mixed $mbid the musicbrainz id for the album
+     * @param string $mbid the musicbrainz id for the album
      * @param bool $autocorrect transform misspelled artist names into correct artist names
      */
     public function getTags($artist, $album, $user, $mbid = null, $autocorrect = true)
@@ -81,7 +81,7 @@ class AlbumMethodsClient extends LastfmAPIClient
      * 
      * @param string $artist the artist name
      * @param string $album the album name
-     * @param mixed $mbid the musicbrainz id for the album
+     * @param string $mbid the musicbrainz id for the album
      * @param bool $autocorrect transform misspelled artist names into correct artist names
      */
     public function getTopTags($artist, $album, $mbid = null, $autocorrect = true)
@@ -139,7 +139,7 @@ class AlbumMethodsClient extends LastfmAPIClient
      * @param string $album the album name
      * @param int $limit the number of results to fetch per page. Defaults to 30.
      * @param int $page the page number to fetch. Defaults to first page.
-     * @param mixed $mbid the musicbrainz id for the album
+     * @param string $mbid the musicbrainz id for the album
      * @param bool $autocorrect transform misspelled artist names into correct artist names
      */
     public function getShouts($artist, $album, $limit = null, $page = null, $mbid = null, $autocorrect = true)
@@ -170,7 +170,7 @@ class AlbumMethodsClient extends LastfmAPIClient
      * 
      * @param string $artist the artist name
      * @param string $album the album name
-     * @param mixed $mbid the musicbrainz id for the album
+     * @param string $mbid the musicbrainz id for the album
      * @param bool $autocorrect transform misspelled artist names into correct artist names
      * @param string $country a country name, as defined by the ISO 3166-1 country names standard.
      */
