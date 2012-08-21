@@ -66,6 +66,15 @@ class ArtistMethodsClient extends LastfmAPIClient
         return $events;
     }
     
+    /**
+     * Get the metadata for an artist. Includes biography.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param string $lang the language to return the biography in, expressed as an ISO 639 alpha-2 code
+     * @param string $username the username for the context of the request. If supplied, the user's playcount for this artist is included in the response
+     * @param bool $autocorrect transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response
+     */
     public function getInfo($artist, $mbid = null, $lang = null, $username = null, $autocorrect = true)
     {
         $response = $this->call(array(
