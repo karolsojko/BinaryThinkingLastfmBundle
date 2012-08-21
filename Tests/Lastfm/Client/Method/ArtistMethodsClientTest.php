@@ -51,6 +51,16 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         
     }
     
+    public function testGetInfo()
+    {
+        $this->stubCallMethod('MockGetInfoArtistResponse');
+        
+        $artist = $this->artistClient->getInfo('test artist');
+        
+        $this->assertNotEmpty($artist, 'no artist retrieved');
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist', $artist, 'wrong instance of object');        
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);

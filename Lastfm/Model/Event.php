@@ -64,8 +64,6 @@ class Event implements LastfmModelInterface
             $imageAttributes = $image->attributes();
             if(!empty($imageAttributes->size)){
                 $images[(string) $imageAttributes->size] = (string) $image;
-            } else {
-                $images[] = (string) $image;
             }
         }
         $event->setImages($images);

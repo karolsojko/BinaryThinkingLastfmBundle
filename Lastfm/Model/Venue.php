@@ -49,8 +49,6 @@ class Venue implements LastfmModelInterface
             $imageAttributes = $image->attributes();
             if(!empty($imageAttributes->size)){
                 $images[(string) $imageAttributes->size] = (string) $image;
-            } else {
-                $images[] = (string) $image;
             }
         }
         $venue->setImages($images);

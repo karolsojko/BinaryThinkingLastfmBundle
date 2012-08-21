@@ -1,92 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<artist>
-    <name>Vader</name>
-    <mbid>702c7d71-7559-4850-b6dc-1de54ada4abc</mbid>
-    <url>http://www.last.fm/music/Vader</url>
-    <image size="small">http://userserve-ak.last.fm/serve/34/33282135.jpg</image>
-    <image size="medium">http://userserve-ak.last.fm/serve/64/33282135.jpg</image>
-    <image size="large">http://userserve-ak.last.fm/serve/126/33282135.jpg</image>
-    <image size="extralarge">http://userserve-ak.last.fm/serve/252/33282135.jpg</image>
-    <image size="mega">http://userserve-ak.last.fm/serve/_/33282135/Vader.jpg</image>
-    <streamable>1</streamable>
-    <stats>
-        <listeners>217033</listeners>
-        <playcount>12641884</playcount>
-    </stats>
-    <similar>
-        <artist>
-            <name>Behemoth</name>
-            <url>http://www.last.fm/music/Behemoth</url>
-            <image size="small">http://userserve-ak.last.fm/serve/34/54196213.jpg</image>
-            <image size="medium">http://userserve-ak.last.fm/serve/64/54196213.jpg</image>
-            <image size="large">http://userserve-ak.last.fm/serve/126/54196213.jpg</image>
-            <image size="extralarge">http://userserve-ak.last.fm/serve/252/54196213.jpg</image>
-            <image size="mega">http://userserve-ak.last.fm/serve/500/54196213/Behemoth.jpg</image>
-        </artist>
-        <artist>
-            <name>Hate</name>
-            <url>http://www.last.fm/music/Hate</url>
-            <image size="small">http://userserve-ak.last.fm/serve/34/52150311.jpg</image>
-            <image size="medium">http://userserve-ak.last.fm/serve/64/52150311.jpg</image>
-            <image size="large">http://userserve-ak.last.fm/serve/126/52150311.jpg</image>
-            <image size="extralarge">http://userserve-ak.last.fm/serve/252/52150311.jpg</image>
-            <image size="mega">http://userserve-ak.last.fm/serve/500/52150311/Hate.jpg</image>
-        </artist>
-        <artist>
-            <name>Decapitated</name>
-            <url>http://www.last.fm/music/Decapitated</url>
-            <image size="small">http://userserve-ak.last.fm/serve/34/25587289.jpg</image>
-            <image size="medium">http://userserve-ak.last.fm/serve/64/25587289.jpg</image>
-            <image size="large">http://userserve-ak.last.fm/serve/126/25587289.jpg</image>
-            <image size="extralarge">http://userserve-ak.last.fm/serve/252/25587289.jpg</image>
-            <image size="mega">http://userserve-ak.last.fm/serve/_/25587289/Decapitated+3.jpg</image>
-        </artist>
-        <artist>
-            <name>Morbid Angel</name>
-            <url>http://www.last.fm/music/Morbid+Angel</url>
-            <image size="small">http://userserve-ak.last.fm/serve/34/50320153.png</image>
-            <image size="medium">http://userserve-ak.last.fm/serve/64/50320153.png</image>
-            <image size="large">http://userserve-ak.last.fm/serve/126/50320153.png</image>
-            <image size="extralarge">http://userserve-ak.last.fm/serve/252/50320153.png</image>
-            <image size="mega">http://userserve-ak.last.fm/serve/500/50320153/Morbid+Angel.png</image>
-        </artist>
-        <artist>
-            <name>Deicide</name>
-            <url>http://www.last.fm/music/Deicide</url>
-            <image size="small">http://userserve-ak.last.fm/serve/34/43471883.jpg</image>
-            <image size="medium">http://userserve-ak.last.fm/serve/64/43471883.jpg</image>
-            <image size="large">http://userserve-ak.last.fm/serve/126/43471883.jpg</image>
-            <image size="extralarge">http://userserve-ak.last.fm/serve/252/43471883.jpg</image>
-            <image size="mega">http://userserve-ak.last.fm/serve/_/43471883/Deicide+old.jpg</image>
-        </artist>
-    </similar>
-    <tags>
-        <tag>
-            <name>death metal</name>
-            <url>http://www.last.fm/tag/death%20metal</url>
-        </tag>
-        <tag>
-            <name>polish</name>
-            <url>http://www.last.fm/tag/polish</url>
-        </tag>
-        <tag>
-            <name>thrash metal</name>
-            <url>http://www.last.fm/tag/thrash%20metal</url>
-        </tag>
-        <tag>
-            <name>metal</name>
-            <url>http://www.last.fm/tag/metal</url>
-        </tag>
-        <tag>
-            <name>brutal death metal</name>
-            <url>http://www.last.fm/tag/brutal%20death%20metal</url>
-        </tag>
-    </tags>
-    <bio>
-        <published>Fri, 11 Feb 2011 18:29:40 +0000</published>
-        <summary><![CDATA[Vader is a <a href="http://www.last.fm/tag/death%20metal" class="bbcode_tag" rel="tag">death metal</a> band from Olsztyn, Poland founded in 1983.  They stand as one of the best-known European death metal bands utilizing a style of death metal different from that of their American counterparts, but their approach is firmly based upon the template created by <a href="http://www.last.fm/music/Morbid+Angel" class="bbcode_artist">Morbid Angel</a>. For example, many bands of this genre tend to play guitar solos and lead parts which do not adhere strictly to traditional musical principles and make extensive use of tremolo bar, creating a rather dissonant sound. ]]>
-        </summary>
-        <content><![CDATA[Vader is a <a href="http://www.last.fm/tag/death%20metal" class="bbcode_tag" rel="tag">death metal</a> band from Olsztyn, Poland founded in 1983.
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <artist>
+        <name>Vader</name>
+        <mbid>702c7d71-7559-4850-b6dc-1de54ada4abc</mbid>
+        <url>http://www.last.fm/music/Vader</url>
+        <image size="small">http://userserve-ak.last.fm/serve/34/33282135.jpg</image>
+        <image size="medium">http://userserve-ak.last.fm/serve/64/33282135.jpg</image>
+        <image size="large">http://userserve-ak.last.fm/serve/126/33282135.jpg</image>
+        <image size="extralarge">http://userserve-ak.last.fm/serve/252/33282135.jpg</image>
+        <image size="mega">http://userserve-ak.last.fm/serve/_/33282135/Vader.jpg</image>
+        <streamable>1</streamable>
+        <stats>
+            <listeners>217033</listeners>
+            <playcount>12641884</playcount>
+        </stats>
+        <similar>
+            <artist>
+                <name>Behemoth</name>
+                <url>http://www.last.fm/music/Behemoth</url>
+                <image size="small">http://userserve-ak.last.fm/serve/34/54196213.jpg</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/54196213.jpg</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/54196213.jpg</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/54196213.jpg</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/500/54196213/Behemoth.jpg</image>
+            </artist>
+            <artist>
+                <name>Hate</name>
+                <url>http://www.last.fm/music/Hate</url>
+                <image size="small">http://userserve-ak.last.fm/serve/34/52150311.jpg</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/52150311.jpg</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/52150311.jpg</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/52150311.jpg</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/500/52150311/Hate.jpg</image>
+            </artist>
+            <artist>
+                <name>Decapitated</name>
+                <url>http://www.last.fm/music/Decapitated</url>
+                <image size="small">http://userserve-ak.last.fm/serve/34/25587289.jpg</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/25587289.jpg</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/25587289.jpg</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/25587289.jpg</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/_/25587289/Decapitated+3.jpg</image>
+            </artist>
+            <artist>
+                <name>Morbid Angel</name>
+                <url>http://www.last.fm/music/Morbid+Angel</url>
+                <image size="small">http://userserve-ak.last.fm/serve/34/50320153.png</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/50320153.png</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/50320153.png</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/50320153.png</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/500/50320153/Morbid+Angel.png</image>
+            </artist>
+            <artist>
+                <name>Deicide</name>
+                <url>http://www.last.fm/music/Deicide</url>
+                <image size="small">http://userserve-ak.last.fm/serve/34/43471883.jpg</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/43471883.jpg</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/43471883.jpg</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/43471883.jpg</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/_/43471883/Deicide+old.jpg</image>
+            </artist>
+        </similar>
+        <tags>
+            <tag>
+                <name>death metal</name>
+                <url>http://www.last.fm/tag/death%20metal</url>
+            </tag>
+            <tag>
+                <name>polish</name>
+                <url>http://www.last.fm/tag/polish</url>
+            </tag>
+            <tag>
+                <name>thrash metal</name>
+                <url>http://www.last.fm/tag/thrash%20metal</url>
+            </tag>
+            <tag>
+                <name>metal</name>
+                <url>http://www.last.fm/tag/metal</url>
+            </tag>
+            <tag>
+                <name>brutal death metal</name>
+                <url>http://www.last.fm/tag/brutal%20death%20metal</url>
+            </tag>
+        </tags>
+        <bio>
+            <published>Fri, 11 Feb 2011 18:29:40 +0000</published>
+            <summary><![CDATA[Vader is a <a href="http://www.last.fm/tag/death%20metal" class="bbcode_tag" rel="tag">death metal</a> band from Olsztyn, Poland founded in 1983.  They stand as one of the best-known European death metal bands utilizing a style of death metal different from that of their American counterparts, but their approach is firmly based upon the template created by <a href="http://www.last.fm/music/Morbid+Angel" class="bbcode_artist">Morbid Angel</a>. For example, many bands of this genre tend to play guitar solos and lead parts which do not adhere strictly to traditional musical principles and make extensive use of tremolo bar, creating a rather dissonant sound. ]]>
+            </summary>
+            <content><![CDATA[Vader is a <a href="http://www.last.fm/tag/death%20metal" class="bbcode_tag" rel="tag">death metal</a> band from Olsztyn, Poland founded in 1983.
  
  They stand as one of the best-known European death metal bands utilizing a style of death metal different from that of their American counterparts, but their approach is firmly based upon the template created by <a href="http://www.last.fm/music/Morbid+Angel" class="bbcode_artist">Morbid Angel</a>. For example, many bands of this genre tend to play guitar solos and lead parts which do not adhere strictly to traditional musical principles and make extensive use of tremolo bar, creating a rather dissonant sound.
  
@@ -119,6 +120,7 @@
  The band's future plans involve a 7-gig headlining tour - Flaming Arts Festival 2007 - across Russia and Belarus, alongside <a href="http://www.last.fm/music/Krisiun" class="bbcode_artist">Krisiun</a>, <a href="http://www.last.fm/music/Rotting+Christ" class="bbcode_artist">Rotting Christ</a> and <a href="http://www.last.fm/music/Incantation" class="bbcode_artist">Incantation</a>. The same line-up will later visit Poland for the second part of the Blitzkrieg 4 Tour, covering 14 Polish cities. Also, in the beginning of October, the band's new DVD - &quot;...And Blood Was Shed In Warsaw&quot; (released through Metal Mind Productions) will finally be available, offering 20 powerfully performed live tracks and including a special guest appearance by Orion (<a href="http://www.last.fm/music/Behemoth" class="bbcode_artist">Behemoth</a>, <a href="http://www.last.fm/music/Vesania" class="bbcode_artist">Vesania</a>). 
     
 User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
-        </content>
-    </bio>
-</artist>
+            </content>
+        </bio>
+    </artist>
+</lfm>

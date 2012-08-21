@@ -66,5 +66,23 @@ class ArtistMethodsClient extends LastfmAPIClient
         return $events;
     }
     
+    public function getInfo($artist, $mbid = null, $lang = null, $username = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getInfo',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'lang' => $lang,
+            'username' => $username,
+            'autocorrect' => $autocorrect
+        ));
+        
+        if(!empty($response->artist)){
+            $artist = LastfmModel\Artist::createFromResponse($response);
+        }
+        
+        return $artist;
+    }
+    
     
 }
