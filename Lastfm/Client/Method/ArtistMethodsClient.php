@@ -93,5 +93,35 @@ class ArtistMethodsClient extends LastfmAPIClient
         return $artist;
     }
     
+    /**
+     * Get a paginated list of all the events this artist has played at in the past.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     * @param bool $autocorrect transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response
+     */
+    public function getPastEvents($artist, $mbid = null, $limit = null, $page = null, $autocorrect = true)
+    {
+        $respone = $this->call(array(
+            'method' => 'artist.getPastEvents',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'limit' => $limit,
+            'page' => $page,
+            'autocorrect' => $autocorrect
+        ));
+        
+        $events = array();
+        if(!empty($respone->events->event)){
+            foreach($respone->events->event as $event){
+                $events[] = LastfmModel\Event::createFromResponse($event);
+            }
+        }
+        
+        return $events;        
+    }
+    
     
 }

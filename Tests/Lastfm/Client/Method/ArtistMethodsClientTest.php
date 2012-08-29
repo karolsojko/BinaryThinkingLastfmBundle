@@ -61,6 +61,20 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist', $artist, 'wrong instance of object');        
     }
     
+    public function testGetPastEvents()
+    {
+        $this->stubCallMethod('MockGetEventsArtistResponse');
+        
+        $events = $this->artistClient->getPastEvents('test artist');
+        
+        $this->assertNotEmpty($events, 'no events retrieved');
+        
+        $firstEvent = reset($events);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Event', $firstEvent, 'wrong instance of object');
+        $this->assertNotEmpty($firstEvent->getId(), 'empty event id');
+        
+    }    
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);
