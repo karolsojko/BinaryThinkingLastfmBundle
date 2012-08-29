@@ -145,8 +145,8 @@ class ArtistMethodsClient extends LastfmAPIClient
         
         $shouts = array();
         if(!empty($response->shouts->shout)){
-            foreach($response->shouts->shout as $albumShouts){
-                $shout = LastfmModel\Shout::createFromResponse($albumShouts);
+            foreach($response->shouts->shout as $artistShout){
+                $shout = LastfmModel\Shout::createFromResponse($artistShout);
                 $shouts[] = $shout;
             }
         }
@@ -174,13 +174,39 @@ class ArtistMethodsClient extends LastfmAPIClient
         
         $tags = array();
         if(!empty($response->tags->tag)){
-            foreach($response->tags->tag as $albumTag){
-                $tag = LastfmModel\Tag::createFromResponse($albumTag);
+            foreach($response->tags->tag as $artistTag){
+                $tag = LastfmModel\Tag::createFromResponse($artistTag);
+                $tags[$tag->getName()] = $tag;
+            }
+        }
+        
+        return $tags;
+    }
+    
+    /**
+     * Get the top tags for an artist on Last.fm, ordered by popularity.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getTopTags($artist, $mbid = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getTopTags',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect
+        ));
+        
+        $tags = array();
+        if(!empty($response->toptags->tag)){
+            foreach($response->toptags->tag as $artistTag){
+                $tag = LastfmModel\Tag::createFromResponse($artistTag);
                 $tags[$tag->getName()] = $tag;
             }
         }
         
         return $tags;        
     }
-    
 }

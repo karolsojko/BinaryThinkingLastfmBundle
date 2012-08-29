@@ -99,6 +99,18 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('swedish', $firstTag->getName(), 'tag name does not match');
     }
     
+    public function testGetTopTags()
+    {
+        $this->stubCallMethod('MockGetTopTagsArtistResponse');
+        
+        $topTags = $this->artistClient->getTopTags('In Flames');
+        $this->assertNotEmpty($topTags, 'no artist tags retrieved');
+        
+        $firstTag = reset($topTags);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Tag', $firstTag, 'tag is not a valid instance of Tag class');
+        $this->assertEquals('swedish', $firstTag->getName(), 'tag name does not match');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);
