@@ -154,4 +154,33 @@ class ArtistMethodsClient extends LastfmAPIClient
         return $shouts;
     }
     
+    /**
+     * Get the tags applied by an individual user to an artist on Last.fm.
+     * 
+     * @param string $artist the artist name
+     * @param string $user If called in non-authenticated mode you must specify the user to look up
+     * @param string $mbid the musicbrainz id for the artist
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getTags($artist, $user, $mbid = null, $autocorrect = null)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getTags',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect,
+            'user' => $user
+        ));
+        
+        $tags = array();
+        if(!empty($response->tags->tag)){
+            foreach($response->tags->tag as $albumTag){
+                $tag = LastfmModel\Tag::createFromResponse($albumTag);
+                $tags[$tag->getName()] = $tag;
+            }
+        }
+        
+        return $tags;        
+    }
+    
 }
