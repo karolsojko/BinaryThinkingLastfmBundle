@@ -73,7 +73,19 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Event', $firstEvent, 'wrong instance of object');
         $this->assertNotEmpty($firstEvent->getId(), 'empty event id');
         
-    }    
+    }
+    
+    public function testGetShouts()
+    {
+        $this->stubCallMethod('MockGetShoutsArtistResponse');
+
+        $shouts = $this->artistClient->getShouts('Death', 'Sound of perseverance');
+        $this->assertNotEmpty($shouts, 'no shouts retrieved');
+        
+        $firstShout = reset($shouts);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Shout', $firstShout, 'shout is not a valid instance of Shout class');
+        $this->assertEquals('Just cannot get enough', $firstShout->getBody(), 'shout does not match');
+    }
     
     protected function stubCallMethod($mockResponseName)
     {

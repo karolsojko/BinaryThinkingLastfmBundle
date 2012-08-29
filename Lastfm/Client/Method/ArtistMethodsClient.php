@@ -123,5 +123,35 @@ class ArtistMethodsClient extends LastfmAPIClient
         return $events;        
     }
     
+    /**
+     * Get shouts for this artist. Also available as an rss feed.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     * @param bool $autocorrect transform misspelled artist names into correct artist names, returning the correct version instead. The corrected artist name will be returned in the response
+     */
+    public function getShouts($artist, $mbid = null, $limit = null, $page = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getShouts',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'limit' => $limit,
+            'page' => $page,
+            'autocorrect' => $autocorrect
+        ));
+        
+        $shouts = array();
+        if(!empty($response->shouts->shout)){
+            foreach($response->shouts->shout as $albumShouts){
+                $shout = LastfmModel\Shout::createFromResponse($albumShouts);
+                $shouts[] = $shout;
+            }
+        }
+        
+        return $shouts;
+    }
     
 }
