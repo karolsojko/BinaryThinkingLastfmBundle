@@ -79,7 +79,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetShoutsArtistResponse');
 
-        $shouts = $this->artistClient->getShouts('Death', 'Sound of perseverance');
+        $shouts = $this->artistClient->getShouts('Death');
         $this->assertNotEmpty($shouts, 'no shouts retrieved');
         
         $firstShout = reset($shouts);
