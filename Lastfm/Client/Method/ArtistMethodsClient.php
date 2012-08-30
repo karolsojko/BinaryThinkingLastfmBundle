@@ -237,4 +237,37 @@ class ArtistMethodsClient extends LastfmAPIClient
         
         return $artists;
     }
+    
+    /**
+     * Get the top albums for an artist on Last.fm, ordered by popularity.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getTopAlbums($artist, $mbid = null, $limit = null, $page = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getTopAlbums',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect,
+            'limit' => $limit,
+            'page' => $page
+        ));
+        
+        $albums = array();
+        if (!empty($response->topalbums->album)) {
+            foreach ($response->topalbums->album as $topAlbum) {
+                $topAlbumAttributes = $topAlbum->attributes();
+                $topAlbum = LastfmModel\Album::createFromResponse($topAlbum);
+                $albums[(int) $topAlbumAttributes->rank] = $topAlbum;
+            }
+        }
+        
+        return $albums;        
+    }
+    
 }

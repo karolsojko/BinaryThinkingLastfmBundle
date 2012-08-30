@@ -124,6 +124,20 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Sonny & Cher', $firstArtist->getName(), 'artist name does not match');
     }
     
+    public function testGetTopAlbums()
+    {
+        $this->stubCallMethod('MockGetTopAlbumsArtistResponse');
+        
+        $topAlbums = $this->artistClient->getTopAlbums('Cher');
+        $this->assertNotEmpty($topAlbums, 'no top albums retrieved');
+        
+        $this->assertCount(2, $topAlbums, 'wrong number of albums retrieved');
+        $firstAlbum = reset($topAlbums);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album', $firstAlbum, 'album is not a valid instance of Album class');
+        $this->assertEquals('The Very Best of Cher', $firstAlbum->getName(), 'album name does not match');
+        $this->assertEquals(111524, $firstAlbum->getPlayCount(), 'playcount does not match');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <topalbums artist="Cher" page="1" perPage="50" totalPages="3" total="123">
+        <album rank="1">
+            <name>The Very Best of Cher</name>
+            <playcount>111524</playcount>
+            <mbid>00d677bf-46f2-34a4-86ad-e922d8466943</mbid>
+            <url>http://www.last.fm/music/Cher/The+Very+Best+of+Cher</url>
+            <artist>
+                <name>Cher</name>
+                <mbid>8b9964b5-05cb-4fea-937b-60dd648415f5</mbid>
+                <url>http://www.last.fm/music/Cher</url>
+            </artist>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/41161483.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/41161483.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/41161483.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/41161483.png</image>
+        </album>                        
+        <album rank="2">
+            <name>Believe</name>
+            <playcount>91252</playcount>
+            <mbid>250e1aa0-fbb9-4f15-8321-3550b6c742ac</mbid>
+            <url>http://www.last.fm/music/Cher/Believe</url>
+            <artist>
+                <name>Cher</name>
+                <mbid>8b9964b5-05cb-4fea-937b-60dd648415f5</mbid>
+                <url>http://www.last.fm/music/Cher</url>
+            </artist>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/72903330.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/72903330.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/72903330.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/72903330.png</image>
+        </album>            
+    </topalbums>
+</lfm>
