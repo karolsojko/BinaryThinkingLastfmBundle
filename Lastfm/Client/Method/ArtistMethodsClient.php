@@ -209,4 +209,32 @@ class ArtistMethodsClient extends LastfmAPIClient
         
         return $tags;        
     }
+    
+    /**
+     * Get all the artists similar to this artist.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param int $limit Limit the number of similar artists returned
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getSimilar($artist, $mbid = null, $limit = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getSimilar',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect,
+            'limit' => $limit
+        ));
+        
+        $artists = array();
+        if (!empty($response->similarartists->artist)) {
+            foreach ($response->similarartists->artist as $similarArtist) {
+                $artists[] = LastfmModel\Artist::createFromResponse($similarArtist);
+            }
+        }
+        
+        return $artists;
+    }
 }

@@ -111,6 +111,19 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('swedish', $firstTag->getName(), 'tag name does not match');
     }
     
+    public function testGetSimilar()
+    {
+        $this->stubCallMethod('MockGetSimilarArtistResponse');
+        
+        $similarArtists = $this->artistClient->getSimilar('Cher');
+        $this->assertNotEmpty($similarArtists, 'no similar artists retrieved');
+        
+        $this->assertCount(2, $similarArtists, 'wrong number of artists retrieved');
+        $firstArtist = reset($similarArtists);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist', $firstArtist, 'artist is not a valid instance of Artist class');
+        $this->assertEquals('Sonny & Cher', $firstArtist->getName(), 'artist name does not match');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);
