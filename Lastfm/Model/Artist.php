@@ -55,6 +55,9 @@ class Artist implements LastfmModelInterface
             $artist->setListeners((int) $response->stats->listeners);
             $artist->setPlayCount((int) $response->stats->playcount);
         }
+        elseif(isset($response->listeners)){
+            $artist->setListeners((int) $response->listeners);
+        }
         
         $similar = array();
         if(!empty($response->similar->artist)){

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <results for="Death" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+        <opensearch:Query role="request" searchTerms="Death" startPage="1" />
+        <opensearch:totalResults>4432</opensearch:totalResults>
+        <opensearch:startIndex>0</opensearch:startIndex>
+        <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+        <artistmatches>
+            <artist>
+                <name>Death Cab for Cutie</name>
+                <listeners>2356401</listeners>
+                <mbid>0039c7ae-e1a7-4a7d-9b49-0cbc716821a6</mbid>
+                <url>http://www.last.fm/music/Death+Cab+for+Cutie</url>
+                <streamable>1</streamable>
+                <image size="small">http://userserve-ak.last.fm/serve/34/60010487.jpg</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/60010487.jpg</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/60010487.jpg</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/60010487.jpg</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/500/60010487/Death+Cab+for+Cutie+dcfc_press.jpg</image>
+            </artist>
+            <artist>
+                <name>Five Finger Death Punch</name>
+                <listeners>667559</listeners>
+                <mbid>7e8571b1-7c5a-4739-bc51-73d422ee9d74</mbid>
+                <url>http://www.last.fm/music/Five+Finger+Death+Punch</url>
+                <streamable>1</streamable>
+                <image size="small">http://userserve-ak.last.fm/serve/34/8717489.jpg</image>
+                <image size="medium">http://userserve-ak.last.fm/serve/64/8717489.jpg</image>
+                <image size="large">http://userserve-ak.last.fm/serve/126/8717489.jpg</image>
+                <image size="extralarge">http://userserve-ak.last.fm/serve/252/8717489.jpg</image>
+                <image size="mega">http://userserve-ak.last.fm/serve/_/8717489/Five+Finger+Death+Punch+five_finger_death_punch.jpg</image>
+            </artist>
+        </artistmatches>
+    </results>
+</lfm>

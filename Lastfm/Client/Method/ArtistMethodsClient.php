@@ -299,7 +299,33 @@ class ArtistMethodsClient extends LastfmAPIClient
             }
         }
         
-        return $tracks;        
+        return $tracks;
+    }
+    
+    /**
+     * Search for an artist by name. Returns artist matches sorted by relevance.
+     * 
+     * @param string $artist the artist name
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     */
+    public function search($artist, $limit = null, $page = null)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.search',
+            'artist' => $artist,
+            'limit' => $limit,
+            'page' => $page
+        ));
+        
+        $artists = array();
+        if (!empty($response->results->artistmatches->artist)) {
+            foreach ($response->results->artistmatches->artist as $artist) {
+                $artists[] = LastfmModel\Artist::createFromResponse($artist);
+            }
+        }
+        
+        return $artists;
     }
     
 }

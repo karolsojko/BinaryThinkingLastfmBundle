@@ -151,6 +151,19 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(384, $firstTrack->getDuration(), 'duration does not match');
     }
     
+    public function testSearch()
+    {
+        $this->stubCallMethod('MockSearchArtistResponse');
+        
+        $searchedArtists = $this->artistClient->search('Death');
+        $this->assertNotEmpty($searchedArtists, 'no artists retrieved');
+        
+        $firstArtist = reset($searchedArtists);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist', $firstArtist, 'artist is not a valid instance of Artist class');
+        $this->assertEquals('Death Cab for Cutie', $firstArtist->getName(), 'artist name does not match');
+        $this->assertEquals(2356401, $firstArtist->getListeners(), 'listeners does not match');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);
