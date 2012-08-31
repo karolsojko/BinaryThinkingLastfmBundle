@@ -17,6 +17,10 @@ class Track implements LastfmModelInterface
     
     protected $duration;
     
+    protected $playcount;
+    
+    protected $listeners;
+    
     protected $mbid;
     
     protected $url;
@@ -24,6 +28,8 @@ class Track implements LastfmModelInterface
     protected $streamable;
     
     protected $artist;
+    
+    protected $images = array();
     
     public static function createFromResponse(\SimpleXMLElement $response)
     {
@@ -41,6 +47,18 @@ class Track implements LastfmModelInterface
         if(!empty($response->artist)){
             $track->setArtist(Artist::createFromResponse($response->artist));
         }
+        
+        $track->setPlaycount((int) $response->playcount);
+        $track->setListeners((int) $response->listeners);
+        
+        $images = array();
+        foreach ($response->image as $image) {
+            $imageAttributes = $image->attributes();
+            if (!empty($imageAttributes->size)) {
+                $images[(string) $imageAttributes->size] = (string) $image;
+            }
+        }
+        $track->setImages($images);
         
         return $track;
     }
@@ -113,6 +131,36 @@ class Track implements LastfmModelInterface
     public function setArtist($artist) 
     {
         $this->artist = $artist;
+    }
+    
+    public function getPlaycount()
+    {
+        return $this->playcount;
+    }
+
+    public function setPlaycount($playcount)
+    {
+        $this->playcount = $playcount;
+    }
+
+    public function getListeners()
+    {
+        return $this->listeners;
+    }
+
+    public function setListeners($listeners)
+    {
+        $this->listeners = $listeners;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function setImages($images)
+    {
+        $this->images = $images;
     }
 
 }

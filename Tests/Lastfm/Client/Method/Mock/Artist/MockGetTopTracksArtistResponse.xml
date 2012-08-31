@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <toptracks artist="Cradle of Filth" page="1" perPage="50" totalPages="20" total="1000">
+        <track rank="1">
+            <name>Her Ghost In The Fog</name>
+            <duration>384</duration>
+            <playcount>32339</playcount>
+            <listeners>11343</listeners>
+            <mbid>09a3ff21-0ec4-4072-884d-8212da25bca1</mbid>
+            <url>http://www.last.fm/music/Cradle+of+Filth/_/Her+Ghost+In+The+Fog</url>
+            <streamable fulltrack="0">1</streamable>
+            <artist>
+                <name>Cradle of Filth</name>
+                <mbid>7e26cbe1-b8f5-4215-af82-e43d5f8ff308</mbid>
+                <url>http://www.last.fm/music/Cradle+of+Filth</url>
+            </artist>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/72796236.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/72796236.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/72796236.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/72796236.png</image>
+        </track>                        
+        <track rank="2">
+            <name>Temptation</name>
+            <duration>227</duration>
+            <playcount>27368</playcount>
+            <listeners>7852</listeners>
+            <mbid>1231f36d-c5e9-42a8-b8f7-2cd8cac1118d</mbid>
+            <url>http://www.last.fm/music/Cradle+of+Filth/_/Temptation</url>
+            <streamable fulltrack="0">1</streamable>
+            <artist>
+                <name>Cradle of Filth</name>
+                <mbid>7e26cbe1-b8f5-4215-af82-e43d5f8ff308</mbid>
+                <url>http://www.last.fm/music/Cradle+of+Filth</url>
+            </artist>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/72796344.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/72796344.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/72796344.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/72796344.png</image>
+        </track>                 
+    </toptracks>
+</lfm>

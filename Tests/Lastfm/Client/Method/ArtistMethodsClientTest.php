@@ -138,6 +138,19 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(111524, $firstAlbum->getPlayCount(), 'playcount does not match');
     }
     
+    public function testGetTopTracks()
+    {
+        $this->stubCallMethod('MockGetTopTracksArtistResponse');
+        
+        $topTracks = $this->artistClient->getTopTracks('Cradle of filth');
+        $this->assertNotEmpty($topTracks, 'no top tracks retrieved');
+        
+        $firstTrack = reset($topTracks);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track', $firstTrack, 'tracks is not a valid instance of Track class');
+        $this->assertEquals('Her Ghost In The Fog', $firstTrack->getName(), 'track name does not match');
+        $this->assertEquals(384, $firstTrack->getDuration(), 'duration does not match');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);

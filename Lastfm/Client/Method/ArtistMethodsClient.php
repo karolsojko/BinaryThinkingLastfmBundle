@@ -269,5 +269,37 @@ class ArtistMethodsClient extends LastfmAPIClient
         
         return $albums;        
     }
+
+    /**
+     * Get the top tracks by an artist on Last.fm, ordered by popularity
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getTopTracks($artist, $mbid = null, $limit = null, $page = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getTopTracks',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect,
+            'limit' => $limit,
+            'page' => $page
+        ));
+        
+        $tracks = array();
+        if (!empty($response->toptracks->track)) {
+            foreach ($response->toptracks->track as $topTrack) {
+                $topTrackAttribues = $topTrack->attributes();
+                $topTrack = LastfmModel\Track::createFromResponse($topTrack);
+                $tracks[(int) $topTrackAttribues->rank] = $topTrack;
+            }
+        }
+        
+        return $tracks;        
+    }
     
 }
