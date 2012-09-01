@@ -164,6 +164,18 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2356401, $firstArtist->getListeners(), 'listeners does not match');
     }
     
+    public function testGetTopFans()
+    {
+        $this->stubCallMethod('MockGetTopFansArtistResponse');
+        
+        $topFans = $this->artistClient->getTopFans('Death');
+        $this->assertNotEmpty($topFans, 'top fans are not retrieved');
+        
+        $firstFan = reset($topFans);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\User', $firstFan, 'fan is not a valid instance of User class');
+        $this->assertEquals(56897108, $firstFan->getWeight(), 'wieght does not match');
+    }
+    
     protected function stubCallMethod($mockResponseName)
     {
         libxml_use_internal_errors(true);

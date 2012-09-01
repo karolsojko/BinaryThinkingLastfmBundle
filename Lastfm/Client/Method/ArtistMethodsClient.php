@@ -328,4 +328,30 @@ class ArtistMethodsClient extends LastfmAPIClient
         return $artists;
     }
     
+    /**
+     * Get the top fans for an artist on Last.fm, based on listening data.
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */
+    public function getTopFans($artist, $mbid = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getTopFans',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect
+        ));
+        
+        $fans = array();
+        if (!empty($response->topfans->user)) {
+            foreach ($response->topfans->user as $fan) {
+                $fans[] = LastfmModel\User::createFromResponse($fan);
+            }
+        }
+        
+        return $fans;
+    }
+    
 }

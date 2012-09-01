@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <topfans artist="Death">
+        <user>
+            <name>loved_to_death</name>
+            <realname>Talissa</realname>
+            <url>http://www.last.fm/user/loved_to_death</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34/81387209.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64/81387209.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/81387209.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/252/81387209.png</image>
+            <weight>56897108</weight>
+        </user>
+        <user>
+            <name>mitzena</name>
+            <realname>Andrew Kuzmin</realname>
+            <url>http://www.last.fm/user/mitzena</url>
+            <image size="small">http://userserve-ak.last.fm/serve/34/78581030.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64/78581030.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/78581030.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/252/78581030.jpg</image>
+            <weight>47610000</weight>
+        </user>
+    </topfans>
+</lfm>
