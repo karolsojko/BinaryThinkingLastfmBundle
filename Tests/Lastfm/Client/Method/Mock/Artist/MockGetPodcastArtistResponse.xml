@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+        <channel>
+            <title>Free pornophonique MP3s</title>
+            <link>http://www.last.fm/music/pornophonique</link>
+            <description>Free pornophonique MP3s from Last.fm</description>
+            <item>
+                <title>pornophonique - Rock'n'roll Hall Of Fame</title>
+                <guid isPermaLink="false">http://www.last.fm/music/pornophonique/_/Rock%27n%27roll+Hall+Of+Fame</guid>
+                <itunes:author>pornophonique</itunes:author>
+                <enclosure url="http://freedownloads.last.fm/download/120677617/Rock%2527n%2527roll%2BHall%2BOf%2BFame.mp3" length="3872000" type="audio/mpeg" />
+                <description>pornophonique - Rock'n'roll Hall Of Fame (4:02) 3.7 MB</description>
+                <link>http://www.last.fm/music/pornophonique/_/Rock%27n%27roll+Hall+Of+Fame</link>
+            </item>
+            <item>
+                <title>pornophonique - 1/2 player game</title>
+                <guid isPermaLink="false">http://www.last.fm/music/pornophonique/_/1%252F2%2Bplayer%2Bgame</guid>
+                <itunes:author>pornophonique</itunes:author>
+                <enclosure url="http://freedownloads.last.fm/download/113567641/1%252F2%2Bplayer%2Bgame.mp3" length="3664000" type="audio/mpeg" />
+                <description>pornophonique - 1/2 player game (3:49) 3.5 MB</description>
+                <link>http://www.last.fm/music/pornophonique/_/1%252F2%2Bplayer%2Bgame</link>
+            </item>
+        </channel>
+    </rss>
+</lfm>

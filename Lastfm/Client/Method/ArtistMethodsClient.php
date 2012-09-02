@@ -353,5 +353,31 @@ class ArtistMethodsClient extends LastfmAPIClient
         
         return $fans;
     }
+
+    /**
+     * Get a podcast of free mp3s based on an artist
+     * 
+     * @param string $artist the artist name
+     * @param string $mbid the musicbrainz id for the artist
+     * @param bool $autocorrect transform misspelled artist names into correct artist names
+     */    
+    public function getPodcast($artist, $mbid = null, $autocorrect = true)
+    {
+        $response = $this->call(array(
+            'method' => 'artist.getPodcast',
+            'artist' => $artist,
+            'mbid' => $mbid,
+            'autocorrect' => $autocorrect
+        ));
+        
+        $channels = array();
+        if (!empty($response->rss->channel)) {
+            foreach ($response->rss->channel as $channel) {
+                $channels[] = LastfmModel\Channel::createFromResponse($channel);
+            }
+        }
+        
+        return $channels;        
+    }
     
 }
