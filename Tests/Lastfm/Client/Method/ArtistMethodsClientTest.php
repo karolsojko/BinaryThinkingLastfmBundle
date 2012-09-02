@@ -188,7 +188,8 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Free pornophonique MP3s', $firstChannel->getTitle(), 'title does not match');
         $this->assertEquals('http://www.last.fm/music/pornophonique', $firstChannel->getLink(), 'link does not match');
         $this->assertEquals('Free pornophonique MP3s from Last.fm', $firstChannel->getDescription(), 'description does not match');
-        $item = reset($firstChannel->getItems());
+        $items = $firstChannel->getItems();
+        $item = reset($items);
         $this->assertEquals('http://www.last.fm/music/pornophonique/_/Rock%27n%27roll+Hall+Of+Fame', $item['guid'], 'guid does not match');
         $this->assertEquals('http://freedownloads.last.fm/download/120677617/Rock%2527n%2527roll%2BHall%2BOf%2BFame.mp3', $item['enclosure_url'], 'enclosure url does not match');
         
