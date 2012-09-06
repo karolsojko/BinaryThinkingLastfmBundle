@@ -21,7 +21,10 @@ class LastfmAPIClientFactory
                 break;
             case 'artist':
                 return self::getArtistClient($apiKey, $apiSecret);
-                break;            
+                break;
+            case 'tag':
+                return self::getTagClient($apiKey, $apiSecret);
+                break;
             default:
                 throw new InvalidArgumentException('invalid client name: ' . $clientName);
         }
@@ -36,5 +39,10 @@ class LastfmAPIClientFactory
     {
         return new Method\ArtistMethodsClient($apiKey, $apiSecret);
     }    
+    
+    public static function getTagClient($apiKey, $apiSecret)
+    {
+        return new Method\TagMethodsClient($apiKey, $apiSecret);
+    }
     
 }

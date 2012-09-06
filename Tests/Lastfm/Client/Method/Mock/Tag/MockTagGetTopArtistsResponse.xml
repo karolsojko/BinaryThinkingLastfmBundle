@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <topartists tag="death metal" >
+        <artist rank="1">
+            <name>Cannibal Corpse</name>
+            <mbid>af8e4cc5-ef54-458d-a194-7b210acf638f</mbid>
+            <url>http://www.last.fm/music/Cannibal+Corpse</url>
+            <streamable>1</streamable>
+            <image size="small">http://userserve-ak.last.fm/serve/34/354062.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64/354062.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/354062.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/252/354062.jpg</image>
+            <image size="mega">http://userserve-ak.last.fm/serve/500/354062/Cannibal+Corpse.jpg</image>
+        </artist>                        
+        <artist rank="2">
+            <name>Death</name>
+            <mbid>5bddb294-e04c-4d8f-b9bb-e3b551802ae4</mbid>
+            <url>http://www.last.fm/music/Death</url>
+            <streamable>1</streamable>
+            <image size="small">http://userserve-ak.last.fm/serve/34/4482345.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64/4482345.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/4482345.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/252/4482345.jpg</image>
+            <image size="mega">http://userserve-ak.last.fm/serve/_/4482345/Death+bandpic7.jpg</image>
+        </artist>       
+    </topartists>
+</lfm>

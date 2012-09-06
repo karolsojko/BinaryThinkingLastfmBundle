@@ -7,29 +7,20 @@ namespace BinaryThinking\LastfmBundle\Tests\Lastfm\Client\Method;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
+class AlbumMethodsClientTest extends MethodsClientTestCase
 {
-    protected $apiKey;
-    
-    protected $apiSecret;
-    
-    protected $albumClient;
     
     public function setUp()
     {
+        $this->context = 'Album';
         parent::setUp();
-        $this->apiKey = 'test';
-        $this->apiSecret = 'testSecret';
-        
-        $this->albumClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient', 
-                array('call'), array($this->apiKey, $this->apiSecret));
     }
     
     public function testSearch()
     {
         $this->stubCallMethod('MockSearchAlbumResponse');
         
-        $albums = $this->albumClient->search('Sound of perseverance');
+        $albums = $this->client->search('Sound of perseverance');
         $this->assertNotEmpty($albums, 'no albums retrieved');
         
         $firstAlbum = reset($albums);
@@ -41,7 +32,7 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTopTagsAlbumResponse');
         
-        $topTags = $this->albumClient->getTopTags('Cynic', 'Focus');
+        $topTags = $this->client->getTopTags('Cynic', 'Focus');
         $this->assertNotEmpty($topTags, 'no album tags retrieved');
         
         $firstTag = reset($topTags);
@@ -53,7 +44,7 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTagsAlbumResponse');
         
-        $userTags = $this->albumClient->getTags('In Flames', 'Sounds of a playground fading', 'someUserName');
+        $userTags = $this->client->getTags('In Flames', 'Sounds of a playground fading', 'someUserName');
         $this->assertNotEmpty($userTags, 'no album tags retrieved');
         
         $firstTag = reset($userTags);
@@ -65,7 +56,7 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetInfoAlbumResponse');
 
-        $album = $this->albumClient->getInfo('Death', 'Sound of perseverance');
+        $album = $this->client->getInfo('Death', 'Sound of perseverance');
         $this->assertNotEmpty($album, 'no album retrieved');
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album', $album, 'album is not a valid instance of Album class');
@@ -77,7 +68,7 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetShoutsAlbumResponse');
 
-        $shouts = $this->albumClient->getShouts('Death', 'Sound of perseverance');
+        $shouts = $this->client->getShouts('Death', 'Sound of perseverance');
         $this->assertNotEmpty($shouts, 'no shouts retrieved');
         
         $firstShout = reset($shouts);
@@ -89,7 +80,7 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetBuylinksAlbumResponse');
         
-        $affiliations = $this->albumClient->getBuylinks('TestArtist', 'test album');
+        $affiliations = $this->client->getBuylinks('TestArtist', 'test album');
         $this->assertNotEmpty($affiliations, 'no affiliations retrieved');
         
         $this->assertNotEmpty($affiliations['physicals'], 'no physical affiliations retrieved');
@@ -102,16 +93,6 @@ class AlbumMethodsClientTest extends \PHPUnit_Framework_TestCase
         $firstDownloadable = reset($affiliations['downloads']);
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Affiliation', $firstDownloadable, 'wrong instance of affiliation');
         $this->assertEquals('Amazon MP3', $firstDownloadable->getSupplierName(), 'wrong supplier name');
-    }
-    
-    protected function stubCallMethod($mockResponseName)
-    {
-        libxml_use_internal_errors(true);
-        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Album/' . $mockResponseName . '.xml');
-
-        $this->albumClient->expects($this->any())
-                ->method('call')
-                ->will($this->returnValue($mockResponse));        
     }
     
 }

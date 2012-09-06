@@ -7,29 +7,20 @@ namespace BinaryThinking\LastfmBundle\Tests\Lastfm\Client\Method;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
+class ArtistMethodsClientTest extends MethodsClientTestCase
 {
-    protected $apiKey;
-    
-    protected $apiSecret;
-    
-    protected $artistClient;
     
     public function setUp()
     {
+        $this->context = 'Artist';
         parent::setUp();
-        $this->apiKey = 'test';
-        $this->apiSecret = 'testSecret';
-        
-        $this->artistClient = $this->getMock('BinaryThinking\LastfmBundle\Lastfm\Client\Method\ArtistMethodsClient', 
-                array('call'), array($this->apiKey, $this->apiSecret));
     }    
     
     public function testGetCorrection()
     {
         $this->stubCallMethod('MockCorrectionArtistResponse');
         
-        $corrections = $this->artistClient->getCorrection('test artist');
+        $corrections = $this->client->getCorrection('test artist');
         
         $this->assertNotEmpty($corrections, 'no corrections retrieved');
         
@@ -41,7 +32,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetEventsArtistResponse');
         
-        $events = $this->artistClient->getEvents('test artist');
+        $events = $this->client->getEvents('test artist');
         
         $this->assertNotEmpty($events, 'no events retrieved');
         
@@ -55,7 +46,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetInfoArtistResponse');
         
-        $artist = $this->artistClient->getInfo('test artist');
+        $artist = $this->client->getInfo('test artist');
         
         $this->assertNotEmpty($artist, 'no artist retrieved');
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist', $artist, 'wrong instance of object');        
@@ -65,7 +56,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetEventsArtistResponse');
         
-        $events = $this->artistClient->getPastEvents('test artist');
+        $events = $this->client->getPastEvents('test artist');
         
         $this->assertNotEmpty($events, 'no events retrieved');
         
@@ -79,7 +70,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetShoutsArtistResponse');
 
-        $shouts = $this->artistClient->getShouts('Death');
+        $shouts = $this->client->getShouts('Death');
         $this->assertNotEmpty($shouts, 'no shouts retrieved');
         
         $firstShout = reset($shouts);
@@ -91,7 +82,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTagsArtistResponse');
         
-        $userTags = $this->artistClient->getTags('In Flames', 'someUserName');
+        $userTags = $this->client->getTags('In Flames', 'someUserName');
         $this->assertNotEmpty($userTags, 'no artist tags retrieved');
         
         $firstTag = reset($userTags);
@@ -103,7 +94,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTopTagsArtistResponse');
         
-        $topTags = $this->artistClient->getTopTags('In Flames');
+        $topTags = $this->client->getTopTags('In Flames');
         $this->assertNotEmpty($topTags, 'no artist tags retrieved');
         
         $firstTag = reset($topTags);
@@ -115,7 +106,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetSimilarArtistResponse');
         
-        $similarArtists = $this->artistClient->getSimilar('Cher');
+        $similarArtists = $this->client->getSimilar('Cher');
         $this->assertNotEmpty($similarArtists, 'no similar artists retrieved');
         
         $this->assertCount(2, $similarArtists, 'wrong number of artists retrieved');
@@ -128,7 +119,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTopAlbumsArtistResponse');
         
-        $topAlbums = $this->artistClient->getTopAlbums('Cher');
+        $topAlbums = $this->client->getTopAlbums('Cher');
         $this->assertNotEmpty($topAlbums, 'no top albums retrieved');
         
         $this->assertCount(2, $topAlbums, 'wrong number of albums retrieved');
@@ -142,7 +133,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTopTracksArtistResponse');
         
-        $topTracks = $this->artistClient->getTopTracks('Cradle of filth');
+        $topTracks = $this->client->getTopTracks('Cradle of filth');
         $this->assertNotEmpty($topTracks, 'no top tracks retrieved');
         
         $firstTrack = reset($topTracks);
@@ -155,7 +146,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockSearchArtistResponse');
         
-        $searchedArtists = $this->artistClient->search('Death');
+        $searchedArtists = $this->client->search('Death');
         $this->assertNotEmpty($searchedArtists, 'no artists retrieved');
         
         $firstArtist = reset($searchedArtists);
@@ -168,7 +159,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetTopFansArtistResponse');
         
-        $topFans = $this->artistClient->getTopFans('Death');
+        $topFans = $this->client->getTopFans('Death');
         $this->assertNotEmpty($topFans, 'top fans are not retrieved');
         
         $firstFan = reset($topFans);
@@ -180,7 +171,7 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->stubCallMethod('MockGetPodcastArtistResponse');
         
-        $channels = $this->artistClient->getPodcast('Some artist');
+        $channels = $this->client->getPodcast('Some artist');
         $this->assertNotEmpty($channels, 'channels are not retrieved');
         
         $firstChannel = reset($channels);
@@ -194,14 +185,5 @@ class ArtistMethodsClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('http://freedownloads.last.fm/download/120677617/Rock%2527n%2527roll%2BHall%2BOf%2BFame.mp3', $item['enclosure_url'], 'enclosure url does not match');
         
     }
-    
-    protected function stubCallMethod($mockResponseName)
-    {
-        libxml_use_internal_errors(true);
-        $mockResponse = simplexml_load_file(dirname(__FILE__) . '/Mock/Artist/' . $mockResponseName . '.xml');
 
-        $this->artistClient->expects($this->any())
-                ->method('call')
-                ->will($this->returnValue($mockResponse));
-    }    
 }
