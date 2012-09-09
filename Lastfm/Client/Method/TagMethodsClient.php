@@ -132,6 +132,25 @@ class TagMethodsClient extends LastfmAPIClient
             }
         }
         
+        return $tags;
+    }
+    
+    /**
+     * Fetches the top global tags on Last.fm, sorted by popularity (number of times used)
+     */
+    public function getTopTags()
+    {
+        $response = $this->call(array(
+            'method' => 'tag.getTopTags'
+        ));
+        
+        $tags = array();
+        if (!empty($response->toptags->tag)) {
+            foreach ($response->toptags->tag as $tag) {
+                $tags[] = LastfmModel\Tag::createFromResponse($tag);
+            }
+        }
+        
         return $tags;        
     }
     

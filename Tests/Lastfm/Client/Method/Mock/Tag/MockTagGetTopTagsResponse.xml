@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <toptags>
+        <tag>
+            <name>rock</name>
+            <count>3672175</count>
+            <url>www.last.fm/tag/rock</url>
+        </tag>
+        <tag>
+            <name>seen live</name>
+            <count>1910720</count>
+            <url>www.last.fm/tag/seen%20live</url>
+        </tag>
+        <tag>
+            <name>alternative</name>
+            <count>1950144</count>
+            <url>www.last.fm/tag/alternative</url>
+        </tag>
+    </toptags>
+</lfm>
