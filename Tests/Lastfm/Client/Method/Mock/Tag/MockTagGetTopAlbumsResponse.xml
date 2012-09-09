@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <topalbums tag="death metal"  page="1" perPage="50" totalPages="20" total="1000">
+        <album rank="1">
+            <name>Scream Bloody Gore</name>
+            <mbid>0017c9c3-7bab-49ee-af43-8fbc6cc51522</mbid>
+            <url>http://www.last.fm/music/Death/Scream+Bloody+Gore</url>
+            <artist>
+                <name>Death</name>
+                <mbid>5bddb294-e04c-4d8f-b9bb-e3b551802ae4</mbid>
+                <url>http://www.last.fm/music/Death</url>
+            </artist>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/52286857.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/52286857.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/52286857.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/52286857.png</image>
+        </album>                        
+        <album rank="2">
+            <name>Nightmares Made Flesh</name>
+            <mbid>85653bfa-ebdc-4422-89cc-f97f4e1d3f5e</mbid>
+            <url>http://www.last.fm/music/Bloodbath/Nightmares+Made+Flesh</url>
+            <artist>
+                <name>Bloodbath</name>
+                <mbid>b014fc48-a723-4db6-8c7a-f0dda9632d3e</mbid>
+                <url>http://www.last.fm/music/Bloodbath</url>
+            </artist>
+            <image size="small">http://userserve-ak.last.fm/serve/34s/46789129.png</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64s/46789129.png</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/46789129.png</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/46789129.png</image>
+        </album>
+    </topalbums>
+</lfm>

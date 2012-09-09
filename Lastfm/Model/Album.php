@@ -40,7 +40,14 @@ class Album implements LastfmModelInterface
         $album = new Album();
         $album->setId((int) $response->id);
         $album->setName((string) $response->name);
-        $album->setArtist((string) $response->artist);
+        $artisNodeCount = count($response->artist->children());
+        if (!empty($artisNodeCount)) {
+            $artist = Artist::createFromResponse($response->artist);
+        } else {
+            $artist = new Artist();
+            $artist->setName((string) $response->artist);
+        }
+        $album->setArtist($artist);
         $album->setUrl((string) $response->url);
         $images = array();
         foreach($response->image as $image){

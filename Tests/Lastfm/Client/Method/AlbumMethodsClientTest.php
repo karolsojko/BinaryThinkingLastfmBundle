@@ -25,7 +25,7 @@ class AlbumMethodsClientTest extends MethodsClientTestCase
         
         $firstAlbum = reset($albums);
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album', $firstAlbum, 'album is not a valid instance of Album class');
-        $this->assertEquals('Death', $firstAlbum->getArtist(), 'artist does not match');
+        $this->assertEquals('Death', $firstAlbum->getArtist()->getName(), 'artist does not match');
     }
     
     public function testGetTopTags()
@@ -60,7 +60,7 @@ class AlbumMethodsClientTest extends MethodsClientTestCase
         $this->assertNotEmpty($album, 'no album retrieved');
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album', $album, 'album is not a valid instance of Album class');
-        $this->assertEquals('Death', $album->getArtist(), 'artist does not match');
+        $this->assertEquals('Death', $album->getArtist()->getName(), 'artist does not match');
         $this->assertCount(9, $album->getTracks(), 'wrong number of tracks retrieved');
     }
     
