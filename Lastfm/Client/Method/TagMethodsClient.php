@@ -177,14 +177,36 @@ class TagMethodsClient extends LastfmAPIClient
             }
         }
         
-        return $tags;        
+        return $tags;
+    }
+    
+    /**
+     * Get a list of available charts for this tag, expressed as date ranges which can be sent to the chart services.
+     * 
+     * @param string $tag the tag name
+     */
+    public function getWeeklyChartList($tag)
+    {
+        $response = $this->call(array(
+            'method' => 'tag.getWeeklyChartList',
+            'tag' => $tag
+        ));
+        
+        $charts = array();
+        if (!empty($response->weeklychartlist)) {
+            foreach ($response->weeklychartlist->chart as $chart) {
+                $charts[] = LastfmModel\Chart::createFromResponse($chart);
+            }
+        }
+        
+        return $charts;        
     }
     
     /**
      * 
      * @param string $tag the tag name
-     * @param string $from the date at which the chart should start from. See getWeeklyChartList for more.
-     * @param string $to the date at which the chart should end on. See getWeeklyChartList for more.
+     * @param int $from the date at which the chart should start from. See getWeeklyChartList for more.
+     * @param int $to the date at which the chart should end on. See getWeeklyChartList for more.
      * @param int $limit the number of results to fetch per page. Defaults to 50
      */
     public function getWeeklyArtistChart($tag, $from = null, $to = null, $limit = null)

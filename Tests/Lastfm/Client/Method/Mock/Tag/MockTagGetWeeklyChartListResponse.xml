@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <weeklychartlist tag="death metal">
+        <chart from="1211716800" to="1212321600"/>
+        <chart from="1212321600" to="1212926400"/>
+        <chart from="1212926400" to="1213531200"/>
+        <chart from="1213531200" to="1214136000"/>
+        <chart from="1214136000" to="1214740800"/>
+    </weeklychartlist>
+</lfm>

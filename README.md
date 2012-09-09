@@ -11,6 +11,7 @@ Status
 The Bundle handles now only API methods for following contexts (Please see [Milestones](https://github.com/karolsojko/BinaryThinkingLastfmBundle/issues/milestones) on github):
 - Album
 - Artist
+- Tag
 
 Stay tunned for more comming soon.
 
