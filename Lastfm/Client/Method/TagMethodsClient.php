@@ -65,4 +65,30 @@ class TagMethodsClient extends LastfmAPIClient
         return $albums;        
     }
     
+    /**
+     * Get the top tracks tagged by this tag, ordered by tag count.
+     * 
+     * @param string $tag the tag name
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     */    
+    public function getTopTracks($tag, $limit = null, $page = null)
+    {
+        $response = $this->call(array(
+            'method' => 'tag.getTopTracks',
+            'tag' => $tag,
+            'limit' => $limit,
+            'page' => $page
+        ));
+        
+        $tracks = array();
+        if (!empty($response->toptracks->track)) {
+            foreach ($response->toptracks->track as $track) {
+                $tracks[(int)$track->attributes()->rank] = LastfmModel\Track::createFromResponse($track);
+            }
+        }
+        
+        return $tracks;
+    }
+    
 }

@@ -40,4 +40,17 @@ class TagMethodsClientTest extends MethodsClientTestCase
                 $firstAlbum, 'album is wrong instance');
         $this->assertEquals('Scream Bloody Gore', $firstAlbum->getName(), 'wrong name of album');
     }
+    
+    public function testGetTopTracks()
+    {
+        $this->stubCallMethod('MockTagGetTopTracksResponse');
+        
+        $tracks = $this->client->getTopTracks('Death Metal');
+        $this->assertNotEmpty($tracks, 'tracks are not retrieved');
+        
+        $firstTrack = reset($tracks);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track',
+                $firstTrack, 'album is wrong instance');
+        $this->assertEquals('Suicide Machine', $firstTrack->getName(), 'wrong name of track');
+    }
 }
