@@ -113,4 +113,26 @@ class TagMethodsClient extends LastfmAPIClient
         return $tag;        
     }
     
+    /**
+     * Search for tags similar to this one. Returns tags ranked by similarity, based on listening data.
+     * 
+     * @param string $tag the tag name
+     */
+    public function getSimilar($tag)
+    {
+        $response = $this->call(array(
+            'method' => 'tag.getSimilar',
+            'tag' => $tag
+        ));
+        
+        $tags = array();
+        if (!empty($response->similartags->tag)) {
+            foreach ($response->similartags->tag as $tag) {
+                $tags[] = LastfmModel\Tag::createFromResponse($tag);
+            }
+        }
+        
+        return $tags;        
+    }
+    
 }

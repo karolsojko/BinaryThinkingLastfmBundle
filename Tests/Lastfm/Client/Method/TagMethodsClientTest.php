@@ -50,7 +50,7 @@ class TagMethodsClientTest extends MethodsClientTestCase
         
         $firstTrack = reset($tracks);
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track',
-                $firstTrack, 'album is wrong instance');
+                $firstTrack, 'track is wrong instance');
         $this->assertEquals('Suicide Machine', $firstTrack->getName(), 'wrong name of track');
     }
     
@@ -62,7 +62,20 @@ class TagMethodsClientTest extends MethodsClientTestCase
         $this->assertNotEmpty($tag, 'tag info not retrieved');
         
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Tag',
-                $tag, 'album is wrong instance');
+                $tag, 'tag is wrong instance');
         $this->assertEquals(64861, $tag->getReach(), 'wrong reach of tag');
+    }
+    
+    public function testGetSimilar()
+    {
+        $this->stubCallMethod('MockTagGetSimilarResponse');
+        
+        $tags = $this->client->getSimilar('Death Metal');
+        $this->assertNotEmpty($tags, 'similar tags not retrieved');
+        
+        $firstTag = reset($tags);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Tag',
+                $firstTag, 'tag is wrong instance');
+        $this->assertEquals('brutal death metal', $firstTag->getName(), 'wrong name of tag');
     }
 }

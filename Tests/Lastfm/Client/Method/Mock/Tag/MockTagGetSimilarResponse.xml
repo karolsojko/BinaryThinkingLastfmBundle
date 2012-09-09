@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<similartags tag="death metal">
+    <tag>
+        <name>brutal death metal</name>
+        <url>http://www.last.fm/tag/brutal%20death%20metal</url>
+        <streamable>1</streamable>
+    </tag>
+    <tag>
+        <name>technical death metal</name>
+        <url>http://www.last.fm/tag/technical%20death%20metal</url>
+        <streamable>1</streamable>
+    </tag>
+</similartags>
+</lfm>
