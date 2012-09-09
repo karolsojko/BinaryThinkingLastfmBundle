@@ -105,4 +105,18 @@ class TagMethodsClientTest extends MethodsClientTestCase
         $this->assertEquals('metal', $firstTag->getName(), 'wrong name of tag');        
     }
     
+    public function testGetWeeklyArtistChart()
+    {
+        $this->stubCallMethod('MockTagGetWeeklyArtistChartResponse');
+        
+        $artists = $this->client->getWeeklyArtistChart('Death Metal');
+        $this->assertNotEmpty($artists, 'artists not retrieved');
+        
+        $firstArtist = reset($artists);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist',
+                $firstArtist, 'artist is wrong instance');
+        $this->assertEquals('Gojira', $firstArtist->getName(), 'wrong name of artist');
+        $this->assertEquals(84280000, $firstArtist->getWeight(), 'wrong weight of artist in chart');
+    }
+    
 }

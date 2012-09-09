@@ -105,12 +105,12 @@ class TagMethodsClient extends LastfmAPIClient
             'lang' => $lang
         ));
         
-        $tag = null;
+        $responseTag = null;
         if (!empty($response->tag)) {
-                $tag = LastfmModel\Tag::createFromResponse($response->tag);
+                $responseTag = LastfmModel\Tag::createFromResponse($response->tag);
         }
         
-        return $tag;        
+        return $responseTag;        
     }
     
     /**
@@ -127,8 +127,8 @@ class TagMethodsClient extends LastfmAPIClient
         
         $tags = array();
         if (!empty($response->similartags->tag)) {
-            foreach ($response->similartags->tag as $tag) {
-                $tags[] = LastfmModel\Tag::createFromResponse($tag);
+            foreach ($response->similartags->tag as $responseTag) {
+                $tags[] = LastfmModel\Tag::createFromResponse($responseTag);
             }
         }
         
@@ -165,18 +165,46 @@ class TagMethodsClient extends LastfmAPIClient
     {
         $response = $this->call(array(
             'method' => 'tag.search',
+            'tag' => $tag,
             'limit' => $limit,
             'page' => $page
         ));
         
         $tags = array();
         if (!empty($response->results->tagmatches->tag)) {
-            foreach ($response->results->tagmatches->tag as $tag) {
-                $tags[] = LastfmModel\Tag::createFromResponse($tag);
+            foreach ($response->results->tagmatches->tag as $responseTag) {
+                $tags[] = LastfmModel\Tag::createFromResponse($responseTag);
             }
         }
         
         return $tags;        
+    }
+    
+    /**
+     * 
+     * @param string $tag the tag name
+     * @param string $from the date at which the chart should start from. See getWeeklyChartList for more.
+     * @param string $to the date at which the chart should end on. See getWeeklyChartList for more.
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     */
+    public function getWeeklyArtistChart($tag, $from = null, $to = null, $limit = null)
+    {
+        $response = $this->call(array(
+            'method' => 'tag.getWeeklyArtistChart',
+            'tag' => $tag,
+            'from' => $from,
+            'to' => $to,
+            'limit' => $limit
+        ));
+        
+        $artists = array();
+        if (!empty($response->weeklyartistchart->artist)) {
+            foreach ($response->weeklyartistchart->artist as $artist) {
+                $artists[] = LastfmModel\Artist::createFromResponse($artist);
+            }
+        }
+        
+        return $artists;                
     }
     
 }

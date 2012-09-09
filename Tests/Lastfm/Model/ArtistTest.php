@@ -32,6 +32,7 @@ class ArtistTest extends ModelTestCase
         $this->assertNotEmpty($similarArtists['Morbid Angel']->getImages(), 'similar artist images are empty');
         $this->assertNotEmpty($artist->getTags(), 'artist tags are empty');
         $this->assertNotEmpty($artist->getBio(), 'artist bio is empty');
+        $this->assertNotEmpty($artist->getWeight(), 'artist weight is empty');
     }
     
     public function testCreateFromPartialResponse()

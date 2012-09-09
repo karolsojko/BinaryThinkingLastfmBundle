@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <weeklyartistchart from="0" to="0">
+        <artist rank="1">
+            <name>Gojira</name>
+            <weight>84280000</weight>
+            <mbid>1c5efd53-d6b6-4d63-9d22-a15025cf5f07</mbid>
+            <url>http://www.last.fm/music/Gojira</url>
+            <streamable>1</streamable>
+            <image size="small">http://userserve-ak.last.fm/serve/34/34505555.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64/34505555.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/34505555.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/252/34505555.jpg</image>
+            <image size="mega">http://userserve-ak.last.fm/serve/500/34505555/Gojira+awesome.jpg</image>
+        </artist>                            
+        <artist rank="2">
+            <name>In Flames</name>
+            <weight>72095624</weight>
+            <mbid>31745282-b1ea-4d62-939f-226b14d68e7c</mbid>
+            <url>http://www.last.fm/music/In+Flames</url>
+            <streamable>1</streamable>
+            <image size="small">http://userserve-ak.last.fm/serve/34/75970182.jpg</image>
+            <image size="medium">http://userserve-ak.last.fm/serve/64/75970182.jpg</image>
+            <image size="large">http://userserve-ak.last.fm/serve/126/75970182.jpg</image>
+            <image size="extralarge">http://userserve-ak.last.fm/serve/252/75970182.jpg</image>
+            <image size="mega">http://userserve-ak.last.fm/serve/_/75970182/In+Flames+inflames_xl.jpg</image>
+        </artist>          
+    </weeklyartistchart>
+</lfm>

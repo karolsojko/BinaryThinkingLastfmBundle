@@ -31,6 +31,8 @@ class Artist implements LastfmModelInterface
     
     protected $bio = array();
     
+    protected $weight;
+    
     public static function createFromResponse(\SimpleXMLElement $response)
     {
         $artist = new Artist();
@@ -85,6 +87,8 @@ class Artist implements LastfmModelInterface
             $bio['content'] = (string) $response->bio->content;
         }
         $artist->setBio($bio);
+        
+        $artist->setWeight((int) $response->weight);
         
         return $artist;
     }
@@ -187,6 +191,16 @@ class Artist implements LastfmModelInterface
     public function setBio($bio)
     {
         $this->bio = $bio;
+    }
+    
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
     }
 
 }
