@@ -91,4 +91,26 @@ class TagMethodsClient extends LastfmAPIClient
         return $tracks;
     }
     
+    /**
+     * Get the metadata for a tag
+     * 
+     * @param string $tag the tag name
+     * @param string $lang the language to return the info in, expressed as an ISO 639 alpha-2 code.
+     */
+    public function getInfo($tag, $lang = null)
+    {
+        $response = $this->call(array(
+            'method' => 'tag.getInfo',
+            'tag' => $tag,
+            'lang' => $lang
+        ));
+        
+        $tag = null;
+        if (!empty($response->tag)) {
+                $tag = LastfmModel\Tag::createFromResponse($response->tag);
+        }
+        
+        return $tag;        
+    }
+    
 }

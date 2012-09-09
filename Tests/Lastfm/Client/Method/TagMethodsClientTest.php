@@ -53,4 +53,16 @@ class TagMethodsClientTest extends MethodsClientTestCase
                 $firstTrack, 'album is wrong instance');
         $this->assertEquals('Suicide Machine', $firstTrack->getName(), 'wrong name of track');
     }
+    
+    public function testGetInfo()
+    {
+        $this->stubCallMethod('MockTagGetInfoResponse');
+        
+        $tag = $this->client->getInfo('Death Metal');
+        $this->assertNotEmpty($tag, 'tag info not retrieved');
+        
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Tag',
+                $tag, 'album is wrong instance');
+        $this->assertEquals(64861, $tag->getReach(), 'wrong reach of tag');
+    }
 }
