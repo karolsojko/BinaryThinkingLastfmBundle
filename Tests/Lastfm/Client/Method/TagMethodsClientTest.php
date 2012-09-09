@@ -89,6 +89,20 @@ class TagMethodsClientTest extends MethodsClientTestCase
         $firstTag = reset($tags);
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Tag',
                 $firstTag, 'tag is wrong instance');
-        $this->assertEquals('rock', $firstTag->getName(), 'wrong name of tag');        
+        $this->assertEquals('rock', $firstTag->getName(), 'wrong name of tag');
     }
+    
+    public function testSearch()
+    {
+        $this->stubCallMethod('MockTagSearchResponse');
+        
+        $tags = $this->client->search('Death Metal');
+        $this->assertNotEmpty($tags, 'tags not retrieved');
+        
+        $firstTag = reset($tags);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Tag',
+                $firstTag, 'tag is wrong instance');
+        $this->assertEquals('metal', $firstTag->getName(), 'wrong name of tag');        
+    }
+    
 }

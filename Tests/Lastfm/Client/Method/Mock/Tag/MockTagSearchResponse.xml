@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+    <results for="Death Metal" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+        <opensearch:Query role="request" searchTerms="Death Metal" startPage="1" />
+        <opensearch:totalResults>16726</opensearch:totalResults>
+        <opensearch:startIndex>0</opensearch:startIndex>
+        <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+        <tagmatches>
+            <tag>
+                <name>metal</name>
+                <count>1134238</count>
+                <url>www.last.fm/tag/metal</url>
+            </tag>
+            <tag>
+                <name>heavy metal</name>
+                <count>590386</count>
+                <url>www.last.fm/tag/heavy%20metal</url>
+            </tag>
+            <tag>
+                <name>death metal</name>
+                <count>636693</count>
+                <url>www.last.fm/tag/death%20metal</url>
+            </tag>
+            <tag>
+                <name>thrash metal</name>
+                <count>431863</count>
+                <url>www.last.fm/tag/thrash%20metal</url>
+            </tag>
+        </tagmatches>
+    </results>
+</lfm>

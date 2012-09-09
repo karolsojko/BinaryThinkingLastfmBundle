@@ -151,6 +151,31 @@ class TagMethodsClient extends LastfmAPIClient
             }
         }
         
+        return $tags;       
+    }
+    
+    /**
+     * Search for a tag by name. Returns matches sorted by relevance.
+     * 
+     * @param string $tag the tag name
+     * @param int $limit the number of results to fetch per page. Defaults to 50
+     * @param int $page the page number to fetch. Defaults to first page
+     */ 
+    public function search($tag, $limit = null, $page = null)
+    {
+        $response = $this->call(array(
+            'method' => 'tag.search',
+            'limit' => $limit,
+            'page' => $page
+        ));
+        
+        $tags = array();
+        if (!empty($response->results->tagmatches->tag)) {
+            foreach ($response->results->tagmatches->tag as $tag) {
+                $tags[] = LastfmModel\Tag::createFromResponse($tag);
+            }
+        }
+        
         return $tags;        
     }
     
