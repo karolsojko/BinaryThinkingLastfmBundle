@@ -1,6 +1,8 @@
 BinaryThinking/LastfmBundle
 ==========================
 
+[![Build Status](https://secure.travis-ci.org/karolsojko/BinaryThinkingLastfmBundle.png)](http://travis-ci.org/karolsojko/BinaryThinkingLastfmBundle)
+
 Symfony 2 Bundle for Last.fm API
 
 This is a Bundle that will help you communicate with Last.fm's API. 
