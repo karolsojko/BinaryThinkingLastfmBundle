@@ -38,8 +38,9 @@ class Venue implements LastfmModelInterface
         $location['postalcode'] = (string) $response->location->postalcode;
         $venue->setLocation($location);
         $geoPoint = array();
-        $geoPoint['lat'] = $response->location->point->lat;
-        $geoPoint['long'] = $response->location->point->long;
+        $geoLocation = $response->location->children('geo', true);
+        $geoPoint['lat'] = (string) $geoLocation->point->lat;
+        $geoPoint['long'] = (string) $geoLocation->point->long;
         $venue->setGeoPoint($geoPoint);
         $venue->setUrl((string) $response->url);
         $venue->setWebsite((string) $response->website);

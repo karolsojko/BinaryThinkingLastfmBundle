@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<venue>
+<venue xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
     <id>8779547</id>
     <name>Headliners</name>
     <location>
