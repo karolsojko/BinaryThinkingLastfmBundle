@@ -11,78 +11,71 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Venue;
  */
 class Event implements LastfmModelInterface
 {
-    
+
     protected $id;
-    
+
     protected $title;
-    
+
     protected $artists;
-    
+
     protected $headliner;
-    
+
     protected $venue;
-    
+
     protected $startDate;
-    
+
     protected $description;
-    
+
     protected $images;
-    
+
     protected $attendance;
-    
+
     protected $reviews;
-    
+
     protected $eventTag;
-    
+
     protected $url;
-    
+
     protected $website;
-    
+
     protected $tickets;
-    
+
     protected $cancelled;
-    
-    protected $tags;
-    
+
     public static function createFromResponse(\SimpleXMLElement $response)
     {
         $event = new Event();
-        $event->setId((int) $response->id);
-        $event->setTitle((string) $response->title);
+        $event->setId((int)$response->id);
+        $event->setTitle((string)$response->title);
         $artists = array();
-        foreach($response->artists->artist as $artist){
-            $artists[] = (string) $artist;
+        foreach ($response->artists->artist as $artist) {
+            $artists[] = (string)$artist;
         }
         $event->setArtists($artists);
-        $event->setHeadliner((string) $response->artists->headliner);
+        $event->setHeadliner((string)$response->artists->headliner);
         $venue = Venue::createFromResponse($response->venue);
         $event->setVenue($venue);
-        $event->setStartDate((string) $response->startDate);
+        $event->setStartDate((string)$response->startDate);
         $event->setDescription($response->description);
         $images = array();
-        foreach($response->image as $image){
+        foreach ($response->image as $image) {
             $imageAttributes = $image->attributes();
-            if(!empty($imageAttributes->size)){
-                $images[(string) $imageAttributes->size] = (string) $image;
+            if (!empty($imageAttributes->size)) {
+                $images[(string)$imageAttributes->size] = (string)$image;
             }
         }
         $event->setImages($images);
-        $event->setAttendance((int) $response->attendance);
-        $event->setReviews((int) $response->reviews);
-        $event->setEventTag((string) $response->tag);
-        $event->setUrl((string) $response->url);
-        $event->setWebsite((string) $response->website);
-        $event->setTickets((int) $response->tickets);
-        $event->setCancelled((int) $response->cancelled);
-        $tags = array();
-        foreach($response->tags->tag as $tag){
-            $tags[] = (string) $tag;
-        }
-        $event->setTags($tags);
-        
+        $event->setAttendance((int)$response->attendance);
+        $event->setReviews((int)$response->reviews);
+        $event->setEventTag((string)$response->tag);
+        $event->setUrl((string)$response->url);
+        $event->setWebsite((string)$response->website);
+        $event->setTickets((int)$response->tickets);
+        $event->setCancelled((int)$response->cancelled);
+
         return $event;
     }
-    
+
     public function getId()
     {
         return $this->id;
@@ -112,7 +105,7 @@ class Event implements LastfmModelInterface
     {
         $this->artists = $artists;
     }
-    
+
     public function getHeadliner()
     {
         return $this->headliner;
@@ -122,7 +115,7 @@ class Event implements LastfmModelInterface
     {
         $this->headliner = $headliner;
     }
-    
+
     public function getVenue()
     {
         return $this->venue;
@@ -163,7 +156,7 @@ class Event implements LastfmModelInterface
         $this->images = $images;
     }
 
-    public function getAttendance() 
+    public function getAttendance()
     {
         return $this->attendance;
     }
@@ -198,7 +191,7 @@ class Event implements LastfmModelInterface
         return $this->url;
     }
 
-    public function setUrl($url) 
+    public function setUrl($url)
     {
         $this->url = $url;
     }
@@ -232,15 +225,4 @@ class Event implements LastfmModelInterface
     {
         $this->cancelled = $cancelled;
     }
-
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-    }
-
 }
