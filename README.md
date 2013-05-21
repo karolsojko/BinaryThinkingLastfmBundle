@@ -24,7 +24,7 @@ If you're using composer just add:
 
 ```json
 {
-    require: {
+    "require": {
         "binarythinking/lastfm-bundle": "*"
     }
 }
