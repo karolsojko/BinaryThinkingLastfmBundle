@@ -35,7 +35,5 @@ class EventTest extends ModelTestCase
         $this->assertNotEmpty($event->getWebsite(), 'empty event website');
         $this->assertNotEmpty($event->getTickets(), 'empty event tickets');
         $this->assertEquals(0, $event->getCancelled(), 'event is cancelled');
-        $this->assertNotEmpty($event->getTags(), 'empty event images');
-        $this->assertCount(2, $event->getTags(), 'wrong number of tags retrieved');
-    }    
+    }
 }
