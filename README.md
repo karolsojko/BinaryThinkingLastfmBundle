@@ -2,6 +2,7 @@ BinaryThinking/LastfmBundle
 ==========================
 
 [![Build Status](https://secure.travis-ci.org/karolsojko/BinaryThinkingLastfmBundle.png)](http://travis-ci.org/karolsojko/BinaryThinkingLastfmBundle)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/karolsojko/BinaryThinkingLastfmBundle/badges/quality-score.png?s=f63ad0acdbdcd1687e9b1db68ae53404f1116617)](https://scrutinizer-ci.com/g/karolsojko/BinaryThinkingLastfmBundle/)
 
 Symfony 2 Bundle for Last.fm API
 
