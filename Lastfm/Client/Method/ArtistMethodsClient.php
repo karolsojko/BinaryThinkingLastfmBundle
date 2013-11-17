@@ -87,7 +87,7 @@ class ArtistMethodsClient extends LastfmAPIClient
         ));
         
         if(!empty($response->artist)){
-            $artist = LastfmModel\Artist::createFromResponse($response);
+            $artist = LastfmModel\Artist::createFromResponse($response->artist);
         }
         
         return $artist;
