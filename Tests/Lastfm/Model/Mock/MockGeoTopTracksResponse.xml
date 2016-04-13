@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracks country="Ukraine" page="1" perPage="50" totalPages="5059800" total="252989999">
+    <track rank="0">
+        <name>Do I Wanna Know?</name>
+        <duration>272</duration>
+        <listeners>699053</listeners>
+        <mbid>f1e57531-e0df-4b3e-938f-1ae30c5b1a11</mbid>
+        <url>
+            http://www.last.fm/music/Arctic+Monkeys/_/Do+I+Wanna+Know%3F
+        </url>
+        <streamable fulltrack="0">0</streamable>
+        <artist>
+            <name>Arctic Monkeys</name>
+            <mbid>ada7a83c-e3e1-40f1-93f9-3e73dbc9298a</mbid>
+            <url>http://www.last.fm/music/Arctic+Monkeys</url>
+        </artist>
+        <image size="small">
+            http://img2-ak.lst.fm/i/u/34s/376466bb9e2a430bbea0c8cd5f086ee2.png
+        </image>
+        <image size="medium">
+            http://img2-ak.lst.fm/i/u/64s/376466bb9e2a430bbea0c8cd5f086ee2.png
+        </image>
+        <image size="large">
+            http://img2-ak.lst.fm/i/u/174s/376466bb9e2a430bbea0c8cd5f086ee2.png
+        </image>
+        <image size="extralarge">
+            http://img2-ak.lst.fm/i/u/300x300/376466bb9e2a430bbea0c8cd5f086ee2.png
+        </image>
+    </track>
+</tracks>

@@ -31,7 +31,7 @@ class GeoMethodsClient extends LastfmAPIClient
 
         $geo = [];
         if (!empty($response->topartists)) {
-            $geo = LastfmModel\Geo::createFromResponse($response);
+            $geo = LastfmModel\Geo::createFromResponse($response->topartists);
         }
 
         return $geo;
@@ -42,21 +42,22 @@ class GeoMethodsClient extends LastfmAPIClient
      *
      * @link http://www.last.fm/api/show/geo.getTopTracks
      *
-     * @param string $country country name
+     * @param string $country  country name
+     * @param string $location location
      *
      * @return Geo Geo
      */
     public function getTopTracks($country, $location = null)
     {
         $response = $this->call([
-            'method'  => 'geo.gettoptracks',
-            'country' => $country,
-            'location'=> $location
+            'method'   => 'geo.gettoptracks',
+            'country'  => $country,
+            'location' => $location,
         ]);
 
         $geo = [];
-        if (!empty($response->topartists)) {
-            $geo = LastfmModel\Geo::createFromResponse($response);
+        if (!empty($response->tracks)) {
+            $geo = LastfmModel\Geo::createFromResponse($response->tracks);
         }
 
         return $geo;

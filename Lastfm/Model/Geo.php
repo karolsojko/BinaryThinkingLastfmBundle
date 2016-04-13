@@ -27,10 +27,10 @@ class Geo implements LastfmModelInterface
         $geo = new Geo();
 
         $artists = [];
-        if (!empty($response->topartists)) {
-            foreach ($response->topartists as $artistXML) {
+        if (!empty($response->artist)) {
+            foreach ($response->artist as $artistXML) {
                 $artist = Artist::createFromResponse($artistXML);
-                if (!empty($similarArtist)) {
+                if (!empty($artist)) {
                     $artists[$artist->getName()] = $artist;
                 }
             }
@@ -38,8 +38,8 @@ class Geo implements LastfmModelInterface
         $geo->setArtists($artists);
 
         $tracks = [];
-        if (!empty($response->tracks)) {
-            foreach ($response->tracks as $trackXML) {
+        if (!empty($response->track)) {
+            foreach ($response->track as $trackXML) {
                 $track = Track::createFromResponse($trackXML);
                 if (!empty($track)) {
                     $tracks[$track->getName()] = $track;
