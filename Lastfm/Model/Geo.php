@@ -12,10 +12,10 @@ use SimpleXMLElement;
 class Geo implements LastfmModelInterface
 {
     /** @var Artist[] $artists Array of artists */
-    protected $artists = [];
+    protected $artists = array();
 
     /** @var Track[] Array of artists */
-    protected $tracks = [];
+    protected $tracks = array();
 
     /**
      * @param SimpleXMLElement $response SimpleXmlElement
@@ -26,7 +26,7 @@ class Geo implements LastfmModelInterface
     {
         $geo = new Geo();
 
-        $artists = [];
+        $artists = array();
         if (!empty($response->artist)) {
             foreach ($response->artist as $artistXML) {
                 $artist = Artist::createFromResponse($artistXML);
@@ -37,7 +37,7 @@ class Geo implements LastfmModelInterface
         }
         $geo->setArtists($artists);
 
-        $tracks = [];
+        $tracks = array();
         if (!empty($response->track)) {
             foreach ($response->track as $trackXML) {
                 $track = Track::createFromResponse($trackXML);
