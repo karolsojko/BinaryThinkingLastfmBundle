@@ -9,16 +9,16 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Event;
  *
  * @author Karol Sójko <karolsojko@gmail.com>
  */
-class EventTest extends ModelTestCase 
+class EventTest extends ModelTestCase
 {
     public function testCreateFromResponse()
     {
         $mockResponse = $this->createMockResponse('MockEventResponse');
         $event = Event::createFromResponse($mockResponse);
-        
-        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Event', 
+
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Event',
                 $event, 'object created is not an instance of Event');
-        
+
         $this->assertNotEmpty($event->getId(), 'empty event id');
         $this->assertNotEmpty($event->getTitle(), 'empty event title');
         $this->assertNotEmpty($event->getArtists(), 'empty event artists');

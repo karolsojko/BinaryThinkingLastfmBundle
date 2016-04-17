@@ -29,8 +29,10 @@ class GeoMethodsClientTest extends MethodsClientTestCase
 
         $this->assertCount(1, $geo->getArtists(), 'wrong number of artists retrieved');
 
+        /** @var Artist[] $artists */
+        $artists = $geo->getArtists();
         /** @var Artist $firstArtist */
-        $firstArtist = $geo->getArtists()['Radiohead'];
+        $firstArtist = $artists['Radiohead'];
 
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist', $firstArtist, 'artist is not a valid instance of Artist class');
         $this->assertEquals('Radiohead', $firstArtist->getName(), 'artist name does not match');
@@ -47,8 +49,10 @@ class GeoMethodsClientTest extends MethodsClientTestCase
 
         $this->assertCount(1, $geo->getTracks(), 'wrong number of artists retrieved');
 
+        /** @var Track[] $tracks */
+        $tracks = $geo->getTracks();
         /** @var Track $firstTrack */
-        $firstTrack = $geo->getTracks()['Do I Wanna Know?'];
+        $firstTrack = $tracks['Do I Wanna Know?'];
 
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track', $firstTrack, 'track is not a valid instance of Track class');
         $this->assertEquals('Do I Wanna Know?', $firstTrack->getName(), 'track name does not match');
