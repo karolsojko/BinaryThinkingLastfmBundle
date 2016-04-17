@@ -24,12 +24,12 @@ class GeoMethodsClient extends LastfmAPIClient
      */
     public function getTopArtists($country)
     {
-        $response = $this->call([
+        $response = $this->call(array(
             'method'  => 'geo.gettopartists',
             'country' => $country,
-        ]);
+        ));
 
-        $geo = [];
+        $geo = array();
         if (!empty($response->topartists)) {
             $geo = LastfmModel\Geo::createFromResponse($response->topartists);
         }
@@ -49,13 +49,13 @@ class GeoMethodsClient extends LastfmAPIClient
      */
     public function getTopTracks($country, $location = null)
     {
-        $response = $this->call([
+        $response = $this->call(array(
             'method'   => 'geo.gettoptracks',
             'country'  => $country,
             'location' => $location,
-        ]);
+        ));
 
-        $geo = [];
+        $geo = array();
         if (!empty($response->tracks)) {
             $geo = LastfmModel\Geo::createFromResponse($response->tracks);
         }
