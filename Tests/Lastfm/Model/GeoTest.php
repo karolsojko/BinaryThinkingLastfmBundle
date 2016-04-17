@@ -20,7 +20,8 @@ class GeoTest extends ModelTestCase
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Geo',
             $geo, 'object created is not an instance of Geo');
 
-        $artist = $geo->getArtists()['Radiohead'];
+        $artists = $geo->getArtists();
+        $artist = $artists['Radiohead'];
 
         $this->assertNotEmpty($artist->getMbid(), 'artist mbid is empty');
         $this->assertNotEmpty($artist->getName(), 'artist name is empty');
@@ -39,7 +40,8 @@ class GeoTest extends ModelTestCase
         $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Geo',
             $geo, 'object created is not an instance of Geo');
 
-        $track = $geo->getTracks()['Do I Wanna Know?'];
+        $tracks = $geo->getTracks();
+        $track = $tracks['Do I Wanna Know?'];
         $this->assertNotEmpty($track->getMbid(), 'track mbid is empty');
         $this->assertNotEmpty($track->getName(), 'track name is empty');
         $this->assertNotEmpty($track->getUrl(), 'track url is empty');
