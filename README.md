@@ -43,11 +43,7 @@ Register the BinaryThinking namespace in autoload.php
 
 ```php
 <?php
-$loader->registerNamespaces(array(
-    // ...
-    'BinaryThinking'  => __DIR__ . '/../vendor/bundles',
-    ...
-));
+$loader->add('BinaryThinking', __DIR__ . '/../vendor/bundles');
 ```
 
 And the bundle to AppKernel.php
