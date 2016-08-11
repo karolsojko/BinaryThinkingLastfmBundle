@@ -56,8 +56,8 @@ class TagMethodsClient extends LastfmAPIClient
         ));
         
         $albums = array();
-        if (!empty($response->topalbums->album)) {
-            foreach ($response->topalbums->album as $album) {
+        if (!empty($response->albums->album)) {
+            foreach ($response->albums->album as $album) {
                 $albums[(int)$album->attributes()->rank] = LastfmModel\Album::createFromResponse($album);
             }
         }
@@ -82,8 +82,8 @@ class TagMethodsClient extends LastfmAPIClient
         ));
         
         $tracks = array();
-        if (!empty($response->toptracks->track)) {
-            foreach ($response->toptracks->track as $track) {
+        if (!empty($response->tracks->track)) {
+            foreach ($response->tracks->track as $track) {
                 $tracks[(int)$track->attributes()->rank] = LastfmModel\Track::createFromResponse($track);
             }
         }
