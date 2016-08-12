@@ -11,37 +11,40 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Track;
  */
 class Album implements LastfmModelInterface
 {
-    
+
     protected $id;
-    
+
     protected $name;
-    
+
     protected $artist;
-    
+
     protected $url;
-    
+
     protected $mbid;
-    
+
     protected $releaseDate;
-    
+
     protected $listeners;
-    
+
     protected $playCount;
-    
+
     protected $images = array();
-    
+
     protected $streamable;
-    
+
     protected $topTags = array();
-    
+
     protected $tracks = array();
-    
+
     public static function createFromResponse(\SimpleXMLElement $response){
         $album = new Album();
         $album->setId((int) $response->id);
         $album->setName((string) $response->name);
-        $artisNodeCount = count($response->artist->children());
-        if (!empty($artisNodeCount)) {
+        $artistNodeCount = 0;
+        if ($response->artist) {
+            $artistNodeCount = count($response->artist->children());
+        }
+        if (!empty($artistNodeCount)) {
             $artist = Artist::createFromResponse($response->artist);
         } else {
             $artist = new Artist();
@@ -70,9 +73,9 @@ class Album implements LastfmModelInterface
             foreach($response->tracks->track as $track){
                 $tracks[] = Track::createFromResponse($track);
             }
-            $album->setTracks($tracks);            
+            $album->setTracks($tracks);
         }
-        
+
         return $album;
     }
 
@@ -195,5 +198,5 @@ class Album implements LastfmModelInterface
     {
         $this->tracks = $tracks;
     }
-    
+
 }

@@ -12,29 +12,36 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Artist;
 class Track implements LastfmModelInterface
 {
     protected $number;
-    
+
     protected $name;
-    
+
     protected $duration;
-    
+
+    protected $nowplaying = false;
+
     protected $playcount;
-    
+
     protected $listeners;
-    
+
+    protected $loved;
+
     protected $mbid;
-    
+
     protected $url;
-    
+
     protected $streamable;
-    
+
     protected $artist;
-    
+
     protected $images = array();
-    
+
     public static function createFromResponse(\SimpleXMLElement $response)
     {
         $track = new Track();
         $trackAttributes = $response->attributes();
+        if(isset($trackAttributes->nowplaying)){
+            $track->setPlaying((bool) $trackAttributes->nowplaying);
+        }
         if(isset($trackAttributes->rank)){
             $track->setNumber((int) $trackAttributes->rank);
         }
@@ -43,14 +50,17 @@ class Track implements LastfmModelInterface
         $track->setMbid((string) $response->mbid);
         $track->setUrl((string) $response->url);
         $track->setStreamable((int) $response->streamable);
-        
+
         if(!empty($response->artist)){
             $track->setArtist(Artist::createFromResponse($response->artist));
         }
-        
+
+        if(isset($response->loved)){
+            $track->setLoved((int) $response->loved);
+        }
         $track->setPlaycount((int) $response->playcount);
         $track->setListeners((int) $response->listeners);
-        
+
         $images = array();
         foreach ($response->image as $image) {
             $imageAttributes = $image->attributes();
@@ -59,10 +69,20 @@ class Track implements LastfmModelInterface
             }
         }
         $track->setImages($images);
-        
+
         return $track;
     }
-    
+
+    public function getPlaying()
+    {
+        return $this->nowplaying;
+    }
+
+    public function setPlaying($playing)
+    {
+        $this->nowplaying = $playing;
+    }
+
     public function getNumber()
     {
         return $this->number;
@@ -81,6 +101,16 @@ class Track implements LastfmModelInterface
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    public function getLoved()
+    {
+        return $this->loved;
+    }
+
+    public function setLoved($loved)
+    {
+        $this->loved = $loved;
     }
 
     public function getDuration()
@@ -128,11 +158,11 @@ class Track implements LastfmModelInterface
         return $this->artist;
     }
 
-    public function setArtist($artist) 
+    public function setArtist($artist)
     {
         $this->artist = $artist;
     }
-    
+
     public function getPlaycount()
     {
         return $this->playcount;

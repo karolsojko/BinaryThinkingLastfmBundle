@@ -12,34 +12,41 @@ use BinaryThinking\LastfmBundle\Lastfm\Model\Tag;
 class Artist implements LastfmModelInterface
 {
     protected $name;
-    
+
     protected $mbid;
-    
+
     protected $url;
-    
+
     protected $images;
-    
+
     protected $streamable;
-    
+
     protected $listeners;
-    
+
     protected $playCount;
-    
+
     protected $similar = array();
-    
+
     protected $tags = array();
-    
+
     protected $bio = array();
-    
+
     protected $weight;
-    
+
     public static function createFromResponse(\SimpleXMLElement $response)
     {
         $artist = new Artist();
-        $artist->setName((string) $response->name);
+        $artist->setName((string) $response);
+        if (isset($response->name)) {
+            $artist->setName((string) $response->name);
+        }
+        $artistAttributes = $response->attributes();
+        if (!isset($response->mbid) && isset($artistAttributes->mbid)){
+            $response->mbid = $artistAttributes->mbid;
+        }
         $artist->setMbid((string) $response->mbid);
         $artist->setUrl((string) $response->url);
-        
+
         $images = array();
         if(!empty($response->image)){
             foreach($response->image as $image){
@@ -47,12 +54,12 @@ class Artist implements LastfmModelInterface
                 if(!empty($imageAttributes->size)){
                     $images[(string) $imageAttributes->size] = (string) $image;
                 }
-            }            
+            }
         }
         $artist->setImages($images);
-        
+
         $artist->setStreamable((int) $response->streamable);
-        
+
         if(!empty($response->stats)){
             $artist->setListeners((int) $response->stats->listeners);
             $artist->setPlayCount((int) $response->stats->playcount);
@@ -60,7 +67,7 @@ class Artist implements LastfmModelInterface
         elseif(isset($response->listeners)){
             $artist->setListeners((int) $response->listeners);
         }
-        
+
         $similar = array();
         if(!empty($response->similar->artist)){
             foreach($response->similar->artist as $similarArtistXML){
@@ -71,7 +78,7 @@ class Artist implements LastfmModelInterface
             }
         }
         $artist->setSimilar($similar);
-        
+
         $tags = array();
         if(!empty($response->tags->tag)){
             foreach($response->tags->tag as $tag){
@@ -79,7 +86,7 @@ class Artist implements LastfmModelInterface
             }
         }
         $artist->setTags($tags);
-        
+
         $bio = array();
         if(!empty($response->bio)){
             $bio['published'] = (string) $response->bio->published;
@@ -87,12 +94,12 @@ class Artist implements LastfmModelInterface
             $bio['content'] = (string) $response->bio->content;
         }
         $artist->setBio($bio);
-        
+
         $artist->setWeight((int) $response->weight);
-        
+
         return $artist;
     }
-    
+
     public function getName()
     {
         return $this->name;
@@ -122,7 +129,7 @@ class Artist implements LastfmModelInterface
     {
         $this->url = $url;
     }
-    
+
     public function getImages()
     {
         return $this->images;
@@ -192,7 +199,7 @@ class Artist implements LastfmModelInterface
     {
         $this->bio = $bio;
     }
-    
+
     public function getWeight()
     {
         return $this->weight;
