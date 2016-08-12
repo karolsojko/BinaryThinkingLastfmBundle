@@ -3,13 +3,13 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-    
+
     <parameters>
         <parameter key="binary_thinking_lastfm.client_factory.class">BinaryThinking\LastfmBundle\Lastfm\Client\LastfmAPIClientFactory</parameter>
         <parameter key="binary_thinking_lastfm.client_apikey"/>
         <parameter key="binary_thinking_lastfm.client_secret"/>
     </parameters>
-    
+
     <services>
         <service id="binary_thinking_lastfm.client_factory" class="%binary_thinking_lastfm.client_factory.class%"/>
         <service id="binary_thinking_lastfm.client.album" class="BinaryThinking\LastfmBundle\Lastfm\Client\Method\AlbumMethodsClient" factory-class="%binary_thinking_lastfm.client_factory.class%" factory-method="getAlbumClient">
@@ -23,7 +23,11 @@
         <service id="binary_thinking_lastfm.client.tag" class="BinaryThinking\LastfmBundle\Lastfm\Client\Method\TagMethodsClient" factory-class="%binary_thinking_lastfm.client_factory.class%" factory-method="getTagClient">
             <argument>%binary_thinking_lastfm.client_apikey%</argument>
             <argument>%binary_thinking_lastfm.client_secret%</argument>
-        </service>        
+        </service>
+        <service id="binary_thinking_lastfm.client.user" class="BinaryThinking\LastfmBundle\Lastfm\Client\Method\UserMethodsClient" factory-class="%binary_thinking_lastfm.client_factory.class%" factory-method="getUserClient">
+            <argument>%binary_thinking_lastfm.client_apikey%</argument>
+            <argument>%binary_thinking_lastfm.client_secret%</argument>
+        </service>
     </services>
-    
+
 </container>
