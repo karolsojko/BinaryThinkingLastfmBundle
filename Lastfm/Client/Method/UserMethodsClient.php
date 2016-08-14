@@ -272,7 +272,7 @@ class UserMethodsClient extends LastfmAPIClient
     /**
      * Fetches the top tags for a user on Last.fm, sorted by popularity (number of times used)
      */
-    public function getTopTags($user)
+    public function getTopTags($user, $limit = null)
     {
         $response = $this->call(array(
             'method' => 'tag.getTopTags',
