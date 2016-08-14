@@ -10,21 +10,26 @@ namespace BinaryThinking\LastfmBundle\Lastfm\Model;
 class User implements LastfmModelInterface
 {
     protected $name;
-    
+
     protected $realName;
-    
+
     protected $url;
-    
+
     protected $images = array();
-    
+
+    protected $playcount;
+
+    protected $playlists;
+
     protected $weight;
-    
+
     public static function createFromResponse(\SimpleXMLElement $response)
     {
         $user = new User();
         $user->setName((string) $response->name);
         $user->setRealName((string) $response->realname);
         $user->setUrl((string) $response->url);
+        $user->setPlayCount((int) $response->playcount);
         $user->setWeight((int) $response->weight);
         $images = array();
         foreach ($response->image as $image) {
@@ -34,10 +39,10 @@ class User implements LastfmModelInterface
             }
         }
         $user->setImages($images);
-        
+
         return $user;
     }
-    
+
     public function getName()
     {
         return $this->name;
@@ -46,6 +51,16 @@ class User implements LastfmModelInterface
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    public function getPlayCount()
+    {
+        return $this->playcount;
+    }
+
+    public function setPlayCount($playcount)
+    {
+        $this->playcount = $playcount;
     }
 
     public function getRealName()
