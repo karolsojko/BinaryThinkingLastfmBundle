@@ -16,6 +16,97 @@ class UserMethodsClientTest extends MethodsClientTestCase
         parent::setUp();
     }
 
+    public function testGetArtistTracks()
+    {
+        $this->stubCallMethod('MockUserGetArtistTracksResponse');
+
+        $tracks = $this->client->getArtistTracks('ks', 'The Beatles');
+        $this->assertNotEmpty($tracks, 'tracks are not retrieved');
+
+        $firstTrack = reset($tracks);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track',
+                $firstTrack, 'track is wrong instance');
+        $this->assertEquals('Got to Get You Into My Life', $firstTrack->getName(), 'wrong name of track');
+    }
+
+    public function testGetFriends()
+    {
+        $this->stubCallMethod('MockUserGetFriendsResponse');
+
+        $friends = $this->client->getFriends('ks');
+        $this->assertNotEmpty($friends, 'friends are not retrieved');
+
+        $firstFriend = reset($friends);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\User',
+                $firstFriend, 'user is wrong instance');
+        $this->assertEquals('SaltySwift', $firstFriend->getName(), 'wrong name of track');
+    }
+
+    public function testGetLovedTracks()
+    {
+        $this->stubCallMethod('MockUserGetLovedTracksResponse');
+
+        $tracks = $this->client->getLovedTracks('ks');
+        $this->assertNotEmpty($tracks, 'tracks are not retrieved');
+
+        $firstTrack = reset($tracks);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track',
+                $firstTrack, 'track is wrong instance');
+        $this->assertEquals('Bosses de Crosses', $firstTrack->getName(), 'wrong name of track');
+    }
+
+    public function testGetPersonalTagsAlbums()
+    {
+        $this->stubCallMethod('MockUserGetPersonalTagsResponse3');
+
+        $albums = $this->client->getPersonalTags('cdn', 'comedy', 'album');
+        $this->assertNotEmpty($albums, 'albums are not retrieved');
+
+        $firstAlbum = reset($albums);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Album',
+                $firstAlbum, 'album is wrong instance');
+        $this->assertEquals('Radio Face', $firstAlbum->getName(), 'wrong name of album');
+    }
+
+    public function testGetPersonalTagsArtists()
+    {
+        $this->stubCallMethod('MockUserGetPersonalTagsResponse2');
+
+        $artists = $this->client->getPersonalTags('cdn', 'comedy', 'artist');
+        $this->assertNotEmpty($artists, 'artist are not retrieved');
+
+        $firstArtist = reset($artists);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Artist',
+                $firstArtist, 'artist is wrong instance');
+        $this->assertEquals('Mitch Benn', $firstArtist->getName(), 'wrong name of artist');
+    }
+
+    public function testGetPersonalTagsTracks()
+    {
+        $this->stubCallMethod('MockUserGetPersonalTagsResponse');
+
+        $tracks = $this->client->getPersonalTags('cdn', 'bondesque', 'track');
+        $this->assertNotEmpty($tracks, 'tracks are not retrieved');
+
+        $firstTrack = reset($tracks);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track',
+                $firstTrack, 'track is wrong instance');
+        $this->assertEquals('Cry Me A River', $firstTrack->getName(), 'wrong name of track');
+    }
+
+    public function testGetRecentTracks()
+    {
+        $this->stubCallMethod('MockUserGetRecentTracksResponse');
+
+        $tracks = $this->client->getRecentTracks('ks');
+        $this->assertNotEmpty($tracks, 'tracks are not retrieved');
+
+        $firstTrack = reset($tracks);
+        $this->assertInstanceOf('BinaryThinking\LastfmBundle\Lastfm\Model\Track',
+                $firstTrack, 'track is wrong instance');
+        $this->assertEquals('Karmic Light', $firstTrack->getName(), 'wrong name of track');
+    }
+
     public function testGetTopArtists()
     {
         $this->stubCallMethod('MockUserGetTopArtistsResponse');
