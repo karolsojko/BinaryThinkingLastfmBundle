@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lfm status="ok">
-    <toptracks tag="death metal" page="1" perPage="50" totalPages="20" total="1000">
+    <tracks tag="death metal" page="1" perPage="50" totalPages="20" total="1000">
         <track rank="1">
             <name>Suicide Machine</name>
             <duration>254</duration>
@@ -16,7 +16,7 @@
             <image size="medium">http://userserve-ak.last.fm/serve/64s/46991507.png</image>
             <image size="large">http://userserve-ak.last.fm/serve/126/46991507.png</image>
             <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/46991507.png</image>
-        </track>                        
+        </track>
         <track rank="2">
             <name>Pull The Plug</name>
             <duration>266</duration>
@@ -32,6 +32,6 @@
             <image size="medium">http://userserve-ak.last.fm/serve/64s/52287273.png</image>
             <image size="large">http://userserve-ak.last.fm/serve/126/52287273.png</image>
             <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/52287273.png</image>
-        </track> 
-    </toptracks>
+        </track>
+    </tracks>
 </lfm>

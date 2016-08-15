@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lfm status="ok">
-    <topalbums tag="death metal"  page="1" perPage="50" totalPages="20" total="1000">
+    <albums tag="death metal"  page="1" perPage="50" totalPages="20" total="1000">
         <album rank="1">
             <name>Scream Bloody Gore</name>
             <mbid>0017c9c3-7bab-49ee-af43-8fbc6cc51522</mbid>
@@ -14,7 +14,7 @@
             <image size="medium">http://userserve-ak.last.fm/serve/64s/52286857.png</image>
             <image size="large">http://userserve-ak.last.fm/serve/126/52286857.png</image>
             <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/52286857.png</image>
-        </album>                        
+        </album>
         <album rank="2">
             <name>Nightmares Made Flesh</name>
             <mbid>85653bfa-ebdc-4422-89cc-f97f4e1d3f5e</mbid>
@@ -29,5 +29,5 @@
             <image size="large">http://userserve-ak.last.fm/serve/126/46789129.png</image>
             <image size="extralarge">http://userserve-ak.last.fm/serve/300x300/46789129.png</image>
         </album>
-    </topalbums>
+    </albums>
 </lfm>

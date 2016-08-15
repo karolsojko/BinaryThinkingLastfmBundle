@@ -1,12 +1,9 @@
 BinaryThinking/LastfmBundle
 ==========================
 
-[![Build Status](https://secure.travis-ci.org/karolsojko/BinaryThinkingLastfmBundle.png)](http://travis-ci.org/karolsojko/BinaryThinkingLastfmBundle)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/karolsojko/BinaryThinkingLastfmBundle/badges/quality-score.png?s=f63ad0acdbdcd1687e9b1db68ae53404f1116617)](https://scrutinizer-ci.com/g/karolsojko/BinaryThinkingLastfmBundle/)
-
 Symfony 2 Bundle for Last.fm API
 
-This is a Bundle that will help you communicate with Last.fm's API. 
+This is a Bundle that will help you communicate with Last.fm's API.
 
 Status
 ======
@@ -15,8 +12,9 @@ The Bundle handles now only API methods for following contexts (Please see [Mile
 - Album
 - Artist
 - Tag
+- User
 
-Stay tunned for more comming soon.
+Stay tuned for more coming soon.
 
 Installation
 ============
@@ -43,11 +41,7 @@ Register the BinaryThinking namespace in autoload.php
 
 ```php
 <?php
-$loader->registerNamespaces(array(
-    // ...
-    'BinaryThinking'  => __DIR__ . '/../vendor/bundles',
-    ...
-));
+$loader->add('BinaryThinking', __DIR__ . '/../vendor/bundles');
 ```
 
 And the bundle to AppKernel.php
@@ -101,4 +95,3 @@ $albums = $albumClient->search('Sound of perseverance');
 // get detailed info on an album
 $album = $albumClient->getInfo('Cynic', 'Focus');
 ```
-

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lfm status="ok"><taggings user="cdn" tag="bondesque" page="1" perPage="50" totalPages="1" total="2"><tracks><track><name>Cry Me A River</name>
+<duration>FIXME</duration>
+<mbid>d1051825-36e1-4adc-8d04-a8a0b436b79a</mbid>
+<url>https://www.last.fm/music/Michael+Bubl%C3%A9/_/Cry+Me+A+River</url>
+<streamable fulltrack="0">0</streamable>
+<artist><name>Michael Bublé</name>
+<mbid>611700cf-27f0-4dc9-ae80-c513a767853e</mbid>
+<url>https://www.last.fm/music/Michael+Bubl%C3%A9</url>
+</artist>
+<image size="small">https://lastfm-img2.akamaized.net/i/u/34s/c169926461fc3902b1d59a189e37f42d.png</image>
+<image size="medium">https://lastfm-img2.akamaized.net/i/u/64s/c169926461fc3902b1d59a189e37f42d.png</image>
+<image size="large">https://lastfm-img2.akamaized.net/i/u/174s/c169926461fc3902b1d59a189e37f42d.png</image>
+<image size="extralarge">https://lastfm-img2.akamaized.net/i/u/300x300/c169926461fc3902b1d59a189e37f42d.png</image>
+</track>
+<track><name>All Mine</name>
+<duration>FIXME</duration>
+<mbid/>
+<url>https://www.last.fm/music/Tom+Jones/_/All+Mine</url>
+<streamable fulltrack="0">0</streamable>
+<artist><name>Tom Jones</name>
+<mbid>79d26f81-e2ff-4708-b5db-459c280c9eec</mbid>
+<url>https://www.last.fm/music/Tom+Jones</url>
+</artist>
+<image size="small">https://lastfm-img2.akamaized.net/i/u/34s/18a5657036444091855ab7e97ec99d67.png</image>
+<image size="medium">https://lastfm-img2.akamaized.net/i/u/64s/18a5657036444091855ab7e97ec99d67.png</image>
+<image size="large">https://lastfm-img2.akamaized.net/i/u/174s/18a5657036444091855ab7e97ec99d67.png</image>
+<image size="extralarge">https://lastfm-img2.akamaized.net/i/u/300x300/18a5657036444091855ab7e97ec99d67.png</image>
+</track>
+</tracks>
+</taggings>
+</lfm>
