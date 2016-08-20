@@ -49,16 +49,8 @@ abstract class LastfmAPIClient
         curl_setopt($this->cURL, CURLOPT_POSTFIELDS, $httpQuery);
         $cURLResponse = curl_exec($this->cURL);
 
-        // better fix for malformed returned <type>.search xml from API
-        // substitute xml header
-        $header = '<results';
-        $namespaced_header = '<results xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"';
-        if (
-            preg_match('/\.search$/', $params['method']) &&
-           !preg_match('/\:opensearch/', $cURLResponse)
-           ) {
-            $cURLResponse = str_replace($header, $namespaced_header,
-                                        $cURLResponse);
+        if (preg_match('/\.search$/', $params['method'])) {
+            $cURLResponse = $this->checkSearchResponse($cURLResponse);
         }
 
         $response = new \SimpleXMLElement($cURLResponse);
@@ -66,6 +58,19 @@ abstract class LastfmAPIClient
         $this->validateResponse($response);
 
         return $response;
+    }
+
+    private function checkSearchResponse($cURLResponse)
+    {
+        // fix for malformed returned <type>.search xml from API
+        // substitute xml header
+        $header = '<results';
+        $namespaced_header = '<results xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"';
+        if (!preg_match('/xmlns\:opensearch/', $cURLResponse)) {
+            $cURLResponse = str_replace($header, $namespaced_header,
+                                        $cURLResponse);
+        }
+        return $cURLResponse;
     }
 
     /**
