@@ -1,6 +1,8 @@
 BinaryThinking/LastfmBundle
 ==========================
 
+[![Build Status](https://secure.travis-ci.org/karolsojko/BinaryThinkingLastfmBundle.png)](http://travis-ci.org/karolsojko/BinaryThinkingLastfmBundle)
+
 Symfony 2 Bundle for Last.fm API
 
 This is a Bundle that will help you communicate with Last.fm's API.
@@ -11,6 +13,7 @@ Status
 The Bundle handles now only API methods for following contexts (Please see [Milestones](https://github.com/karolsojko/BinaryThinkingLastfmBundle/issues/milestones) on github):
 - Album
 - Artist
+- Geo
 - Tag
 - User
 
