@@ -15,6 +15,7 @@ The Bundle handles API methods for following contexts (Please see [Milestones](h
 - Artist
 - Chart
 - Geo
+- Library
 - Tag
 - User
 
