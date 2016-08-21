@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lfm status="ok"><artists page="1" perPage="2" totalPages="1389088" total="2778176"><artist><name>Coldplay</name>
+<playcount>332282122</playcount>
+<listeners>5111259</listeners>
+<mbid>cc197bad-dc9c-440d-a5b5-d52ba2e14234</mbid>
+<url>https://www.last.fm/music/Coldplay</url>
+<streamable>0</streamable>
+<image size="small">https://lastfm-img2.akamaized.net/i/u/34s/4859bf400fbc41ecc176cc9bb64b725e.png</image>
+<image size="medium">https://lastfm-img2.akamaized.net/i/u/64s/4859bf400fbc41ecc176cc9bb64b725e.png</image>
+<image size="large">https://lastfm-img2.akamaized.net/i/u/174s/4859bf400fbc41ecc176cc9bb64b725e.png</image>
+<image size="extralarge">https://lastfm-img2.akamaized.net/i/u/300x300/4859bf400fbc41ecc176cc9bb64b725e.png</image>
+<image size="mega">https://lastfm-img2.akamaized.net/i/u/4859bf400fbc41ecc176cc9bb64b725e.png</image>
+</artist>
+<artist><name>Drake</name>
+<playcount>95356244</playcount>
+<listeners>3001109</listeners>
+<mbid>b49b81cc-d5b7-4bdd-aadb-385df8de69a6</mbid>
+<url>https://www.last.fm/music/Drake</url>
+<streamable>0</streamable>
+<image size="small">https://lastfm-img2.akamaized.net/i/u/34s/334d050af3482fbc0852be9a55d4eebc.png</image>
+<image size="medium">https://lastfm-img2.akamaized.net/i/u/64s/334d050af3482fbc0852be9a55d4eebc.png</image>
+<image size="large">https://lastfm-img2.akamaized.net/i/u/174s/334d050af3482fbc0852be9a55d4eebc.png</image>
+<image size="extralarge">https://lastfm-img2.akamaized.net/i/u/300x300/334d050af3482fbc0852be9a55d4eebc.png</image>
+<image size="mega">https://lastfm-img2.akamaized.net/i/u/334d050af3482fbc0852be9a55d4eebc.png</image>
+</artist>
+</artists>
+</lfm>
