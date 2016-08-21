@@ -60,7 +60,7 @@ class ChartMethodsClient extends LastfmAPIClient
     }
 
     /**
-     * Get the top tracks tagged by this user, ordered by play count.
+     * Get the top tracks on Last.fm, ordered by play count.
      *
      * @param int $limit the number of results to fetch per page. Defaults to 50
      * @param int $page the page number to fetch. Defaults to first page
