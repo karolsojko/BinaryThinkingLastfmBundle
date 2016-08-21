@@ -275,7 +275,7 @@ class UserMethodsClient extends LastfmAPIClient
     public function getTopTags($user, $limit = null)
     {
         $response = $this->call(array(
-            'method' => 'tag.getTopTags',
+            'method' => 'user.getTopTags',
             'user' => $user,
             'limit' => $limit
         ));
