@@ -203,6 +203,7 @@ class TagMethodsClient extends LastfmAPIClient
     }
     
     /**
+     * @deprecated
      * 
      * @param string $tag the tag name
      * @param int $from the date at which the chart should start from. See getWeeklyChartList for more.

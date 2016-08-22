@@ -22,6 +22,15 @@ class LastfmAPIClientFactory
             case 'artist':
                 return self::getArtistClient($apiKey, $apiSecret);
                 break;
+            case 'chart':
+                return self::getChartClient($apiKey, $apiSecret);
+                break;
+            case 'geo':
+                return self::getGeoClient($apiKey, $apiSecret);
+                break;
+            case 'library':
+                return self::getLibraryClient($apiKey, $apiSecret);
+                break;
             case 'tag':
                 return self::getTagClient($apiKey, $apiSecret);
                 break;
@@ -41,6 +50,21 @@ class LastfmAPIClientFactory
     public static function getArtistClient($apiKey, $apiSecret)
     {
         return new Method\ArtistMethodsClient($apiKey, $apiSecret);
+    }
+
+    public static function getChartClient($apiKey, $apiSecret)
+    {
+        return new Method\ChartMethodsClient($apiKey, $apiSecret);
+    }
+
+    public static function getGeoClient($apiKey, $apiSecret)
+    {
+        return new Method\GeoMethodsClient($apiKey, $apiSecret);
+    }
+
+    public static function getLibraryClient($apiKey, $apiSecret)
+    {
+        return new Method\LibraryMethodsClient($apiKey, $apiSecret);
     }
 
     public static function getTagClient($apiKey, $apiSecret)
